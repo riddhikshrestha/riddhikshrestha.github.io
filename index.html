@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riddi — Software Engineer</title>
+<meta name="description" content="Riddi — software engineer working across deep learning and full-stack systems, based in Kathmandu, Nepal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap header-inner">
+    <span class="mark">Riddi</span>
+    <nav>
+      <a href="#work">Work</a>
+      <a href="#stack">Stack</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+
+  <section class="hero wrap">
+    <div class="hero-text">
+      <p class="kicker">Software engineer, Kathmandu, Nepal</p>
+      <h1>I build systems that turn signals into decisions —<br>from cardiac video to ledgers.</h1>
+      <p class="hero-lede">
+        Seven years across deep learning and full-stack engineering. Currently researching
+        ejection‑fraction estimation from echocardiography video, alongside building
+        production web systems in Django, React and Node.
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#work">See the work</a>
+        <a class="btn btn-quiet" href="mailto:hello@example.com">Get in touch</a>
+      </div>
+    </div>
+    <div class="hero-visual" aria-hidden="true">
+      <svg id="waveform" viewBox="0 0 520 220" width="100%" height="220">
+        <line x1="0" y1="110" x2="520" y2="110" class="baseline"></line>
+        <path id="wave-path" class="wave"></path>
+        <circle id="wave-dot" r="4" class="wave-dot"></circle>
+      </svg>
+      <p class="visual-caption">Simulated echo trace — the actual model reads ~150 real frames per study</p>
+    </div>
+  </section>
+
+  <section id="work" class="work wrap">
+    <p class="section-label">Selected work</p>
+
+    <article class="project">
+      <div class="project-head">
+        <h2>Ejection‑fraction estimation from echocardiography</h2>
+        <p class="project-role">Research — deep learning</p>
+      </div>
+      <div class="project-body">
+        <p>
+          A contrastive‑learning pipeline that estimates left ventricular ejection
+          fraction directly from echocardiography video, trained on the EchoNet‑Dynamic
+          dataset. A ResNet‑18 encoder feeds a multi‑head self‑attention block for
+          temporal modelling across the cardiac cycle, optimised with a combination of
+          NT‑Xent and triplet‑margin losses.
+        </p>
+        <p>
+          Built the full pipeline end to end — data loading, training, evaluation —
+          alongside a literature review and a publication‑ready paper.
+        </p>
+        <ul class="tags">
+          <li>Python</li><li>PyTorch</li><li>Contrastive learning</li>
+          <li>ResNet‑18</li><li>EchoNet‑Dynamic</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h2>LedgerPro</h2>
+        <p class="project-role">Full‑stack — accounting system</p>
+      </div>
+      <div class="project-body">
+        <p>
+          A Django‑based accounting system built from five apps covering double‑entry
+          bookkeeping, invoicing and financial reporting — designed to mirror how a
+          small business actually closes its books, not just store transactions.
+        </p>
+        <ul class="tags">
+          <li>Django</li><li>Python</li><li>REST APIs</li><li>PostgreSQL</li>
+        </ul>
+      </div>
+    </article>
+
+    <article class="project">
+      <div class="project-head">
+        <h2>Full‑stack systems &amp; ML tooling</h2>
+        <p class="project-role">Ongoing</p>
+      </div>
+      <div class="project-body">
+        <p>
+          Across roles at Nepit Solutions, CodigoTech and BiTS: React and Node.js
+          front to back, PHP on legacy systems, REST APIs connecting the two, and
+          Linux servers keeping it all running.
+        </p>
+        <ul class="tags">
+          <li>React</li><li>Node.js</li><li>PHP</li><li>Linux administration</li>
+        </ul>
+      </div>
+    </article>
+  </section>
+
+  <section id="stack" class="stack wrap">
+    <p class="section-label">Stack</p>
+    <div class="stack-grid">
+      <div class="stack-group">
+        <h3>Machine learning</h3>
+        <p>Python, PyTorch, TensorFlow, contrastive learning, temporal modelling</p>
+      </div>
+      <div class="stack-group">
+        <h3>Full‑stack</h3>
+        <p>React, Node.js, PHP, Django, REST APIs</p>
+      </div>
+      <div class="stack-group">
+        <h3>Infrastructure</h3>
+        <p>Linux server administration</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="contact wrap">
+    <p class="section-label">Contact</p>
+    <h2>Open to remote roles in ML and full‑stack engineering.</h2>
+    <div class="contact-links">
+      <a href="mailto:hello@example.com">hello@example.com</a>
+      <a href="https://github.com/your-username" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://www.linkedin.com/in/your-profile" target="_blank" rel="noopener">LinkedIn</a>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer wrap">
+  <span>Riddi — Kathmandu, Nepal</span>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
