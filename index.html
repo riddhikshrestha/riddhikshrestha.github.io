@@ -1,587 +1,780 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Riddi Kumar Shrestha · CV</title>
-  <!-- Font Awesome for icons (optional but matches modern style) -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <style>
-    /* ----- reset & base ----- */
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Riddi Kumar Shrestha — Software Engineer</title>
+<meta name="description" content="Portfolio of Riddi Kumar Shrestha, software engineer working across machine learning and full-stack development, based in Kathmandu, Nepal.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#12283D;
+    --ink-2:#1C3C57;
+    --paper:#EAE6D9;
+    --paper-2:#F6F3EA;
+    --line:#7FA0BC;
+    --line-soft:rgba(127,160,188,0.35);
+    --amber:#D9822B;
+    --amber-dark:#B9691C;
+    --text:#182631;
+    --muted:#5B6B77;
+    --muted-on-ink:#A9BDCF;
+    --teal:#4C8B72;
+    --display: 'Space Grotesk', sans-serif;
+    --body: 'IBM Plex Sans', sans-serif;
+    --mono: 'IBM Plex Mono', monospace;
+    --max: 1080px;
+  }
 
-    body {
-      background: #f4f7fb;
-      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
-      padding: 2rem 1rem;
-      display: flex;
-      justify-content: center;
-      color: #1e2b3c;
-      line-height: 1.5;
-    }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--text);
+    font-family:var(--body);
+    font-size:16px;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:var(--display);
+    margin:0;
+    color:var(--ink);
+    font-weight:600;
+    letter-spacing:-0.01em;
+  }
+  p{margin:0;}
+  a{color:inherit;}
+  ::selection{background:var(--amber);color:#fff;}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
 
-    .cv-container {
-      max-width: 1000px;
-      width: 100%;
-      background: white;
-      border-radius: 20px;
-      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
-      padding: 2rem 2.2rem;
-      transition: 0.2s;
-    }
+  .wrap{max-width:var(--max);margin:0 auto;padding:0 28px;}
 
-    /* ----- header / name + title ----- */
-    .header {
-      margin-bottom: 1.8rem;
-      border-bottom: 1px solid #e9edf4;
-      padding-bottom: 1.2rem;
-    }
+  /* ---------- Blueprint corner marks & sheet labels ---------- */
+  .sheet{
+    position:relative;
+    border-top:1px solid var(--line-soft);
+    padding:96px 0 88px;
+  }
+  .sheet::before,
+  .sheet::after{
+    content:"";
+    position:absolute;
+    top:0; width:14px; height:14px;
+    border-top:1px solid var(--line);
+  }
+  .sheet::before{left:28px; border-left:1px solid var(--line);}
+  .sheet::after{right:28px; border-right:1px solid var(--line);}
+  .sheet-label{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.04em;
+    color:var(--muted);
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:48px;
+  }
+  .sheet-label span:last-child{color:var(--line);}
 
-    .name-title h1 {
-      font-size: 2.6rem;
-      font-weight: 600;
-      letter-spacing: -0.5px;
-      color: #0b1a2b;
-      margin-bottom: 0.2rem;
-    }
+  /* ---------- Nav ---------- */
+  header.nav{
+    position:fixed; top:0; left:0; right:0; z-index:50;
+    background:rgba(234,230,217,0.88);
+    backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line-soft);
+  }
+  .nav-inner{
+    max-width:var(--max); margin:0 auto; padding:0 28px;
+    height:64px; display:flex; align-items:center; justify-content:space-between;
+  }
+  .mark{
+    width:36px;height:36px;border:1px solid var(--ink);
+    display:flex;align-items:center;justify-content:center;
+    font-family:var(--mono); font-size:13px; font-weight:500; color:var(--ink);
+    flex-shrink:0;
+  }
+  .nav-links{display:flex; gap:28px; list-style:none; margin:0; padding:0;}
+  .nav-links a{
+    font-family:var(--mono); font-size:13px; color:var(--ink);
+    text-decoration:none; padding:4px 0; border-bottom:1px solid transparent;
+    transition:border-color .15s ease, color .15s ease;
+  }
+  .nav-links a:hover{border-color:var(--amber); color:var(--amber-dark);}
+  .nav-cta{
+    font-family:var(--mono); font-size:13px; text-decoration:none;
+    color:var(--ink); border:1px solid var(--ink); padding:8px 14px;
+    transition:background .15s ease, color .15s ease;
+  }
+  .nav-cta:hover{background:var(--ink); color:var(--paper-2);}
+  .nav-toggle{display:none;}
 
-    .subhead {
-      font-size: 1.1rem;
-      font-weight: 400;
-      color: #2c4a6e;
-      background: #eef3fa;
-      display: inline-block;
-      padding: 0.2rem 1rem;
-      border-radius: 30px;
-      margin-top: 0.1rem;
-    }
+  /* ---------- Hero ---------- */
+  .hero{
+    background:var(--ink);
+    color:var(--paper-2);
+    position:relative;
+    overflow:hidden;
+    padding:168px 0 96px;
+  }
+  .hero-grid{
+    position:absolute; inset:0;
+    background-image:
+      linear-gradient(var(--line-soft) 1px, transparent 1px),
+      linear-gradient(90deg, var(--line-soft) 1px, transparent 1px);
+    background-size:40px 40px;
+    opacity:0.16;
+    mask-image: radial-gradient(ellipse at 30% 20%, black 40%, transparent 78%);
+  }
+  .hero-inner{position:relative; z-index:2;}
+  .eyebrow-tech{
+    font-family:var(--mono); font-size:13px; color:var(--muted-on-ink);
+    display:flex; align-items:center; gap:10px; margin-bottom:28px;
+  }
+  .eyebrow-tech .dot{width:6px;height:6px;background:var(--amber); border-radius:50%; flex-shrink:0;}
+  .hero h1{
+    font-size:clamp(38px, 6vw, 64px);
+    line-height:1.04;
+    max-width:14ch;
+    color:#fff;
+  }
+  .hero .role{
+    font-family:var(--mono);
+    font-size:16px;
+    color:var(--amber);
+    margin-top:18px;
+    display:block;
+  }
+  .hero p.lede{
+    max-width:52ch;
+    margin-top:24px;
+    font-size:18px;
+    color:var(--muted-on-ink);
+  }
+  .hero-cta{display:flex; gap:16px; margin-top:40px; flex-wrap:wrap;}
+  .btn{
+    font-family:var(--mono); font-size:14px; text-decoration:none;
+    padding:13px 22px; display:inline-flex; align-items:center; gap:10px;
+    border:1px solid transparent; cursor:pointer;
+    transition:transform .15s ease, background .15s ease, border-color .15s ease, color .15s ease;
+  }
+  .btn:active{transform:translateY(1px);}
+  .btn-primary{background:var(--amber); color:#1A1006;}
+  .btn-primary:hover{background:var(--amber-dark);}
+  .btn-ghost{border-color:var(--muted-on-ink); color:var(--paper-2);}
+  .btn-ghost:hover{border-color:#fff; background:rgba(255,255,255,0.06);}
+  .btn-ghost.on-paper{border-color:var(--ink); color:var(--ink);}
+  .btn-ghost.on-paper:hover{background:var(--ink); color:var(--paper-2);}
 
-    .contact-row {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.8rem 1.8rem;
-      margin-top: 0.8rem;
-      font-size: 0.95rem;
-      color: #1f3a57;
-    }
+  .waveform{margin-top:64px; width:100%; max-width:640px;}
+  .waveform path{
+    fill:none; stroke:var(--amber); stroke-width:2;
+    stroke-dasharray:900; stroke-dashoffset:900;
+    animation:draw 2.6s ease-out .3s forwards;
+  }
+  .waveform .baseline{stroke:var(--line-soft); stroke-width:1; stroke-dasharray:none; stroke-dashoffset:0; animation:none;}
+  @keyframes draw{ to{ stroke-dashoffset:0; } }
+  @media (prefers-reduced-motion: reduce){
+    .waveform path{animation:none; stroke-dashoffset:0;}
+  }
 
-    .contact-row i {
-      margin-right: 6px;
-      color: #2e5a88;
-      width: 1.1rem;
-    }
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid; grid-template-columns: 1.3fr 1fr; gap:64px; align-items:start;
+  }
+  .lead-text{font-size:20px; color:var(--ink); max-width:46ch;}
+  .lead-text strong{color:var(--amber-dark); font-weight:600;}
+  .meta-list{list-style:none; margin:0; padding:0; font-family:var(--mono); font-size:13px;}
+  .meta-list li{
+    display:flex; justify-content:space-between; gap:16px;
+    padding:12px 0; border-top:1px solid var(--line-soft); color:var(--text);
+  }
+  .meta-list li span:first-child{color:var(--muted);}
+  .meta-list li:last-child{border-bottom:1px solid var(--line-soft);}
 
-    .contact-row a {
-      color: #1f3a57;
-      text-decoration: none;
-      border-bottom: 1px dotted transparent;
-      transition: 0.1s;
-    }
+  /* ---------- Experience ---------- */
+  .timeline{list-style:none; margin:0; padding:0;}
+  .tl-item{
+    display:grid; grid-template-columns: 160px 1px 1fr; gap:0;
+    padding-bottom:56px; position:relative;
+  }
+  .tl-item:last-child{padding-bottom:0;}
+  .tl-date{font-family:var(--mono); font-size:13px; color:var(--muted); padding-top:4px;}
+  .tl-rule{position:relative; background:var(--line-soft);}
+  .tl-rule::before{
+    content:""; position:absolute; top:6px; left:50%;
+    width:9px;height:9px; background:var(--paper); border:1px solid var(--amber);
+    transform:translateX(-50%); border-radius:50%;
+  }
+  .tl-content{padding-left:32px;}
+  .tl-content h3{font-size:21px;}
+  .tl-content .org{font-family:var(--mono); font-size:13px; color:var(--amber-dark); margin-top:4px; display:block;}
+  .tl-content ul{margin:16px 0 0; padding-left:18px; color:var(--text);}
+  .tl-content li{margin-bottom:8px; max-width:64ch;}
+  .tl-content li::marker{color:var(--line);}
 
-    .contact-row a:hover {
-      border-bottom-color: #2e5a88;
-    }
+  /* ---------- Projects ---------- */
+  .proj{
+    display:grid; grid-template-columns: 120px 1fr; gap:32px;
+    padding:36px 0; border-top:1px solid var(--line-soft);
+  }
+  .proj:last-child{border-bottom:1px solid var(--line-soft);}
+  .proj-icon{padding-top:6px;}
+  .proj-icon svg{width:64px; height:64px;}
+  .proj h3{font-size:22px;}
+  .proj .tag{font-family:var(--mono); font-size:12px; color:var(--muted); display:block; margin-top:6px;}
+  .proj p.desc{margin-top:14px; max-width:66ch; color:var(--text);}
+  .proj ul{margin:14px 0 0; padding-left:18px; max-width:66ch;}
+  .proj li{margin-bottom:6px;}
+  .proj li::marker{color:var(--line);}
+  .clientline{
+    margin-top:14px; font-family:var(--mono); font-size:12px; color:var(--muted);
+    line-height:1.7;
+  }
+  .more-projects{
+    margin-top:8px; display:flex; flex-wrap:wrap; gap:10px;
+  }
+  .chip{
+    font-family:var(--mono); font-size:12px; border:1px solid var(--line-soft);
+    padding:7px 12px; color:var(--text);
+  }
 
-    /* ----- sections common ----- */
-    .section {
-      margin-top: 2rem;
-    }
+  /* ---------- Research spotlight ---------- */
+  .research{
+    background:var(--ink); color:var(--paper-2);
+    margin:0; padding:96px 0;
+  }
+  .research .sheet-label{color:var(--muted-on-ink);}
+  .research .sheet-label span:last-child{color:var(--line);}
+  .research::before, .research::after{display:none;}
+  .research-grid{display:grid; grid-template-columns: 1fr 1fr; gap:56px; align-items:center;}
+  .research h2{color:#fff; font-size:clamp(26px,3vw,34px); max-width:16ch;}
+  .research .status{
+    font-family:var(--mono); font-size:12px; color:var(--amber);
+    border:1px solid var(--amber); display:inline-block; padding:5px 10px; margin-bottom:20px;
+  }
+  .research p{color:var(--muted-on-ink); margin-top:18px; max-width:52ch;}
+  .research .specs{margin-top:26px; list-style:none; padding:0; font-family:var(--mono); font-size:13px;}
+  .research .specs li{padding:10px 0; border-top:1px solid rgba(169,189,207,0.25); display:flex; gap:14px;}
+  .research .specs li span:first-child{color:var(--muted-on-ink); flex-shrink:0; width:130px;}
+  .research .specs li span:last-child{color:#fff;}
+  .echo-diagram{width:100%; height:auto;}
+  .echo-diagram .pulse{
+    fill:none; stroke:var(--amber); stroke-width:2;
+  }
+  .echo-diagram .grid-line{stroke:rgba(169,189,207,0.25); stroke-width:1;}
+  .echo-diagram .node{fill:var(--ink); stroke:var(--teal); stroke-width:1.5;}
 
-    .section-title {
-      font-size: 1.2rem;
-      font-weight: 600;
-      letter-spacing: 0.3px;
-      color: #1a314b;
-      border-bottom: 2px solid #dbe2ec;
-      padding-bottom: 0.35rem;
-      margin-bottom: 1.2rem;
-      display: flex;
-      align-items: center;
-      gap: 8px;
-    }
+  /* ---------- Skills ---------- */
+  .skills-grid{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:40px 32px;
+  }
+  .skill-group h3{
+    font-family:var(--mono); font-size:13px; font-weight:500; color:var(--muted);
+    text-transform:none; margin-bottom:16px; padding-bottom:10px; border-bottom:1px solid var(--line-soft);
+  }
+  .skill-tags{display:flex; flex-wrap:wrap; gap:9px;}
+  .skill-tags span{
+    font-family:var(--mono); font-size:12.5px; color:var(--text);
+    border:1px solid var(--line-soft); padding:6px 10px;
+  }
 
-    .section-title i {
-      color: #32608f;
-      font-size: 1.1rem;
-      width: 1.6rem;
-    }
+  /* ---------- Teaching ---------- */
+  .teach-list{list-style:none; margin:0; padding:0;}
+  .teach-item{
+    display:grid; grid-template-columns:1fr 200px; gap:20px;
+    padding:20px 0; border-top:1px solid var(--line-soft);
+  }
+  .teach-item:last-child{border-bottom:1px solid var(--line-soft);}
+  .teach-item h4{font-size:17px; font-weight:500;}
+  .teach-item .inst{font-family:var(--mono); font-size:13px; color:var(--muted); margin-top:4px; display:block;}
+  .teach-item .dates{font-family:var(--mono); font-size:13px; color:var(--amber-dark); text-align:right; padding-top:2px;}
 
-    /* summary */
-    .summary-text {
-      background: #f8faff;
-      padding: 0.9rem 1.4rem;
-      border-radius: 18px;
-      font-size: 0.98rem;
-      border-left: 4px solid #3c7bb0;
-      color: #1d2f44;
-      line-height: 1.6;
-    }
+  /* ---------- Education / certs ---------- */
+  .ed-grid{display:grid; grid-template-columns:1fr 1fr; gap:56px;}
+  .ed-item{margin-bottom:26px;}
+  .ed-item h4{font-size:17px; font-weight:500;}
+  .ed-item .inst{font-family:var(--mono); font-size:13px; color:var(--muted); display:block; margin-top:4px;}
+  .cert-list{list-style:none; margin:0; padding:0;}
+  .cert-list li{
+    padding:12px 0; border-top:1px solid var(--line-soft); font-size:14.5px;
+  }
+  .cert-list li:last-child{border-bottom:1px solid var(--line-soft);}
+  .cert-list .issuer{color:var(--muted); font-family:var(--mono); font-size:12px; display:block; margin-top:3px;}
 
-    /* core competencies (grid) */
-    .comp-grid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.5rem 2rem;
-      background: #fafcff;
-      padding: 0.8rem 1.2rem;
-      border-radius: 16px;
-      border: 1px solid #e6ecf5;
-    }
+  /* ---------- Contact / footer ---------- */
+  .contact{
+    background:var(--ink); color:var(--paper-2);
+  }
+  .contact::before,.contact::after{border-color:var(--muted-on-ink);}
+  .contact .sheet-label{color:var(--muted-on-ink);}
+  .contact .sheet-label span:last-child{color:var(--line);}
+  .contact h2{color:#fff; font-size:clamp(30px,4vw,44px); max-width:16ch;}
+  .contact p{color:var(--muted-on-ink); margin-top:16px; max-width:48ch; font-size:17px;}
+  .contact-grid{display:grid; grid-template-columns:1.3fr 1fr; gap:56px; margin-top:48px; align-items:start;}
+  .contact-list{list-style:none; margin:0; padding:0; font-family:var(--mono); font-size:14px;}
+  .contact-list li{padding:14px 0; border-top:1px solid rgba(169,189,207,0.25);}
+  .contact-list li:last-child{border-bottom:1px solid rgba(169,189,207,0.25);}
+  .contact-list li span{color:var(--muted-on-ink); display:block; font-size:11px; margin-bottom:4px;}
+  .contact-list a{text-decoration:none; color:#fff; border-bottom:1px solid transparent;}
+  .contact-list a:hover{border-color:var(--amber);}
+  .reference-note{font-size:13px; color:var(--muted-on-ink); margin-top:24px; font-family:var(--mono); line-height:1.7;}
 
-    .comp-item {
-      display: flex;
-      align-items: baseline;
-      gap: 6px;
-      font-size: 0.95rem;
-    }
+  footer.site-footer{
+    background:var(--ink); border-top:1px solid rgba(169,189,207,0.25);
+    padding:28px 0; color:var(--muted-on-ink); font-family:var(--mono); font-size:12px;
+    display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px;
+  }
 
-    .comp-item .tag {
-      font-weight: 600;
-      color: #1c3d60;
-      min-width: 110px;
-    }
-
-    /* experience & projects */
-    .exp-item, .project-item, .edu-item, .teaching-item, .research-item {
-      margin-bottom: 1.6rem;
-    }
-
-    .exp-header {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      margin-bottom: 0.1rem;
-    }
-
-    .exp-title {
-      font-weight: 600;
-      font-size: 1.05rem;
-      color: #0b2842;
-    }
-
-    .exp-org {
-      font-weight: 500;
-      color: #2c4e72;
-    }
-
-    .exp-date {
-      font-size: 0.9rem;
-      color: #4f6f91;
-      background: #edf3fa;
-      padding: 0.1rem 0.8rem;
-      border-radius: 20px;
-      white-space: nowrap;
-    }
-
-    .exp-desc {
-      margin-top: 0.5rem;
-      padding-left: 0.2rem;
-      list-style-type: none;
-    }
-
-    .exp-desc li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.4rem;
-      font-size: 0.96rem;
-      line-height: 1.5;
-    }
-
-    .exp-desc li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: #3b7bb0;
-      font-weight: 600;
-    }
-
-    .project-item .exp-header {
-      margin-bottom: 0.2rem;
-    }
-
-    .project-desc {
-      padding-left: 0.2rem;
-      font-size: 0.96rem;
-      line-height: 1.6;
-      color: #1e3349;
-    }
-
-    .project-desc ul {
-      list-style: none;
-      margin-top: 0.2rem;
-    }
-
-    .project-desc ul li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .project-desc ul li::before {
-      content: "•";
-      position: absolute;
-      left: 0;
-      color: #3b7bb0;
-      font-weight: 700;
-    }
-
-    .client-tag {
-      font-weight: 500;
-      color: #004080;
-      background: #e3edf9;
-      padding: 0.1rem 0.8rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      display: inline-block;
-      margin-top: 0.3rem;
-    }
-
-    /* education / teaching / research */
-    .edu-item, .teaching-item, .research-item {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      align-items: baseline;
-      border-bottom: 1px dashed #e2e9f2;
-      padding-bottom: 0.6rem;
-      margin-bottom: 0.6rem;
-    }
-
-    .edu-item:last-child, .teaching-item:last-child {
-      border-bottom: none;
-    }
-
-    .edu-name {
-      font-weight: 600;
-      font-size: 1rem;
-    }
-
-    .edu-place {
-      color: #2b4d72;
-    }
-
-    .edu-date {
-      font-size: 0.9rem;
-      color: #4e6f92;
-    }
-
-    .teaching-item .edu-name {
-      font-weight: 500;
-    }
-
-    .research-item .edu-name {
-      font-weight: 600;
-    }
-
-    .research-desc {
-      margin-top: 0.3rem;
-      padding-left: 0.2rem;
-      font-size: 0.96rem;
-      color: #1c3149;
-      width: 100%;
-    }
-
-    .research-desc ul {
-      list-style: none;
-      margin-top: 0.2rem;
-    }
-
-    .research-desc ul li {
-      position: relative;
-      padding-left: 1.5rem;
-      margin-bottom: 0.3rem;
-    }
-
-    .research-desc ul li::before {
-      content: "▹";
-      position: absolute;
-      left: 0;
-      color: #3b7bb0;
-    }
-
-    /* certificates */
-    .cert-list {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.4rem 1.8rem;
-      background: #f8fcff;
-      padding: 0.6rem 1.2rem;
-      border-radius: 30px;
-      border: 1px solid #e5edf6;
-    }
-
-    .cert-list span {
-      font-size: 0.92rem;
-    }
-
-    .cert-list i {
-      color: #2a68a0;
-      margin-right: 4px;
-    }
-
-    /* references */
-    .ref-item {
-      font-size: 1rem;
-      background: #f4faff;
-      padding: 0.5rem 1.2rem;
-      border-radius: 40px;
-      display: inline-block;
-      border: 1px solid #dce6f2;
-    }
-
-    /* small screens */
-    @media (max-width: 700px) {
-      .cv-container { padding: 1.5rem; }
-      .comp-grid { grid-template-columns: 1fr; gap: 0.2rem; }
-      .exp-header { flex-direction: column; align-items: flex-start; gap: 0.2rem; }
-      .contact-row { gap: 0.4rem 1rem; }
-      .name-title h1 { font-size: 2.2rem; }
-    }
-
-    @media (max-width: 480px) {
-      .cert-list { flex-direction: column; align-items: flex-start; }
-    }
-
-    /* additional tweaks */
-    .mt-1 { margin-top: 0.5rem; }
-    .inline-badge {
-      background: #eef3fa;
-      padding: 0.1rem 0.7rem;
-      border-radius: 30px;
-      font-size: 0.8rem;
-      color: #1f3f61;
-    }
-  </style>
+  /* ---------- Responsive ---------- */
+  @media (max-width: 860px){
+    .about-grid, .research-grid, .ed-grid, .contact-grid{grid-template-columns:1fr; gap:36px;}
+    .skills-grid{grid-template-columns:1fr 1fr;}
+    .tl-item{grid-template-columns:100px 1px 1fr;}
+    .proj{grid-template-columns:56px 1fr;}
+    .proj-icon svg{width:44px;height:44px;}
+  }
+  @media (max-width: 640px){
+    .nav-links{display:none;}
+    .skills-grid{grid-template-columns:1fr;}
+    .teach-item{grid-template-columns:1fr; gap:6px;}
+    .teach-item .dates{text-align:left;}
+    .sheet{padding:72px 0 64px;}
+    .hero{padding:140px 0 72px;}
+  }
+</style>
 </head>
 <body>
-<div class="cv-container">
 
-  <!-- HEADER -->
-  <div class="header">
-    <div class="name-title">
-      <h1>Riddi Kumar Shrestha</h1>
-      <div class="subhead">Software Engineer — Machine Learning &amp; Full-Stack</div>
-    </div>
-    <div class="contact-row">
-      <span><i class="fas fa-phone-alt"></i> +977-9841037737</span>
-      <span><i class="fas fa-envelope"></i> <a href="mailto:riddhikshrestha@gmail.com">riddhikshrestha@gmail.com</a></span>
-      <span><i class="fas fa-map-marker-alt"></i> Kathmandu, Nepal</span>
-      <span><i class="fab fa-linkedin"></i> <a href="#">linkedin.com/in/riddhikshrestha</a></span>
-      <span><i class="fab fa-github"></i> <a href="#">github.com/riddhikshrestha</a></span>
-    </div>
+<header class="nav">
+  <div class="nav-inner">
+    <a href="#top" style="text-decoration:none; display:flex; align-items:center; gap:12px;">
+      <span class="mark">RS</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="#profile">Profile</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#research">Research</a></li>
+      <li><a href="#skills">Stack</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <a class="nav-cta" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Résumé ↓</a>
   </div>
+</header>
 
-  <!-- SUMMARY -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-user-astronaut"></i> Summary</div>
-    <div class="summary-text">
-      Software engineer with 7+ years of experience across machine learning and full-stack development. Currently leads development of an AI-enabled booking platform at Nepit Solutions, architecting the application, owning its data layer, and managing the underlying server infrastructure. Earlier experience includes building and deploying machine learning models, and delivering web applications and system integrations for international clients across the hospitality, government, and multi-level marketing sectors. Also teaches computer science at the university level as a part time lecturer.
-    </div>
-  </div>
+<main id="top">
 
-  <!-- CORE COMPETENCIES -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-code"></i> Core Competencies</div>
-    <div class="comp-grid">
-      <div class="comp-item"><span class="tag">Languages:</span> Python, Java, PHP, JavaScript, SQL / T-SQL, LaTeX</div>
-      <div class="comp-item"><span class="tag">ML &amp; Data:</span> PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, Matplotlib, Seaborn, BeautifulSoup</div>
-      <div class="comp-item"><span class="tag">Web &amp; Frameworks:</span> Django, Flask, FastAPI, Streamlit, CodeIgniter, WordPress, REST APIs, jQuery, AJAX, JSON, Bootstrap</div>
-      <div class="comp-item"><span class="tag">Databases:</span> MySQL, SQL Server, T-SQL, Stored Procedures, PostgreSQL</div>
-      <div class="comp-item"><span class="tag">Infrastructure &amp; Tools:</span> Linux, Docker, Git, GitHub</div>
-    </div>
-  </div>
-
-  <!-- PROFESSIONAL EXPERIENCE -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-briefcase"></i> Professional Experience</div>
-
-    <!-- Nepit Solutions -->
-    <div class="exp-item">
-      <div class="exp-header">
-        <span class="exp-title">Software Engineer</span>
-        <span class="exp-org">Nepit Solutions Pvt. Ltd.</span>
-        <span class="exp-date">Apr 2025 – Present</span>
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-grid"></div>
+    <div class="wrap hero-inner">
+      <div class="eyebrow-tech"><span class="dot"></span>Kathmandu, Nepal — available for remote engagements</div>
+      <h1>Riddi Kumar Shrestha
+        <span class="role">Software Engineer — Machine Learning &amp; Full-Stack</span>
+      </h1>
+      <p class="lede">Seven-plus years building systems end to end: production web platforms during the day, and — on the side — a contrastive-learning model that reads heart function straight out of ultrasound video.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Download résumé</a>
+        <a class="btn btn-ghost" href="#projects">View projects</a>
       </div>
-      <ul class="exp-desc">
-        <li>Lead development of an AI-enabled online booking system, developing and maintaining full-stack web applications with a focus on scalability, performance, and user-centric design.</li>
-        <li>Manage server configuration and deployment across Linux environments, ensuring high availability and security for production applications.</li>
-        <li>Own database schema design, query optimization, and general database management for production systems.</li>
-        <li>Build responsive, cross-browser frontend interfaces using HTML5, CSS3, Bootstrap, and JavaScript.</li>
-      </ul>
+      <svg class="waveform" viewBox="0 0 640 120" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <line class="baseline" x1="0" y1="90" x2="640" y2="90"/>
+        <path d="M0,90 L110,90 L130,40 L150,100 L165,20 L180,90 L230,90 L250,60 L270,90 L640,90"/>
+      </svg>
     </div>
+  </section>
 
-    <!-- CodigoTech -->
-    <div class="exp-item">
-      <div class="exp-header">
-        <span class="exp-title">Software Engineer</span>
-        <span class="exp-org">CodigoTech Pvt. Ltd.</span>
-        <span class="exp-date">Feb 2022 – Mar 2025</span>
-      </div>
-      <ul class="exp-desc">
-        <li>Developed and deployed machine learning models using PyTorch and TensorFlow, iterating on architecture and training strategy to improve prediction accuracy and reduce inference time.</li>
-        <li>Ran exploratory data analysis, feature engineering, and feature scaling to prepare data pipelines for model training.</li>
-        <li>Partnered with the team on algorithm selection, working through the underlying mathematical intuition to choose the right model for each problem.</li>
-        <li>Built and performance-tested RESTful web APIs, and scraped and structured web data using BeautifulSoup.</li>
-      </ul>
-    </div>
-
-    <!-- BiTS -->
-    <div class="exp-item">
-      <div class="exp-header">
-        <span class="exp-title">Software Engineer</span>
-        <span class="exp-org">Business Intelligence Technology Solutions (BiTS)</span>
-        <span class="exp-date">Jul 2015 – Apr 2019</span>
-      </div>
-      <ul class="exp-desc">
-        <li>Developed web applications using Java, PHP, and front-end technologies for business clients.</li>
-        <li>Optimized complex T-SQL queries and stored procedures to reduce execution time and improve system performance.</li>
-        <li>Diagnosed and resolved slow-running production queries using SQL Profiler and SQL Server Management Studio.</li>
-        <li>Performed code reviews and debugging, including capturing and analyzing network traffic with Fiddler.</li>
-      </ul>
-    </div>
-  </div>
-
-  <!-- SELECTED PROJECTS -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-folder-open"></i> Selected Projects</div>
-
-    <!-- Booking system -->
-    <div class="project-item">
-      <div class="exp-header">
-        <span class="exp-title">Online Booking System</span>
-        <span class="exp-org">Global clients, leisure/entertainment/hospitality</span>
-      </div>
-      <div class="project-desc">
-        <ul>
-          <li>Configure and customize the Booked.it platform for international clients across the UK and Europe, tailoring booking flows and payment gateways to specific business requirements while collaborating remotely across time zones.</li>
-          <li>Integrate the platform with client servers for data synchronization and security compliance; write custom scripts to automate workflows, manage complex booking rules (lane management, group reservations, dynamic pricing), and connect with EPOS, messaging, and loyalty systems.</li>
-        </ul>
-        <div class="client-tag"><i class="fas fa-users"></i> Clients include The Brunch Club | Lane7 | Rollacity | Spinner | Dereham Strike Bowl | Ludlow Racecourse | Manchester PitchGolf, Bugsys Bowling | Hackers POS.</div>
-      </div>
-    </div>
-
-    <!-- ePopInfo -->
-    <div class="project-item">
-      <div class="exp-header">
-        <span class="exp-title">ePopInfo</span>
-        <span class="exp-org">Government population information system</span>
-      </div>
-      <div class="project-desc">
-        <ul>
-          <li>Built a national-level population data portal for government use in Java and PostgreSQL, with interactive filtering and drill-down across demographic categories.</li>
-          <li>Created RESTful API endpoints for external systems and an automated pipeline for processing census datasets.</li>
+  <!-- ABOUT -->
+  <section class="sheet" id="profile">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 01 — PROFILE</span><span>RKS / 2026</span></div>
+      <div class="about-grid">
+        <div>
+          <p class="lead-text">I lead development of an <strong>AI-enabled booking platform</strong> at Nepit Solutions — architecting the application, owning the data layer, and running the server infrastructure it sits on. Before that, I spent three years building and deploying <strong>PyTorch and TensorFlow models</strong>, and before that, several years writing Java and PHP for business clients. I also teach computer science part-time at the university level.</p>
+          <p class="lead-text" style="margin-top:22px;">My work sits at the join between the two disciplines: ML systems that need to actually ship, and full-stack systems that need to be built by someone who understands the model underneath.</p>
+        </div>
+        <ul class="meta-list">
+          <li><span>Based in</span><span>Kathmandu, Nepal</span></li>
+          <li><span>Experience</span><span>7+ years</span></li>
+          <li><span>Current role</span><span>Software Engineer, Nepit Solutions</span></li>
+          <li><span>Focus</span><span>ML systems &amp; full-stack engineering</span></li>
+          <li><span>Teaching</span><span>Part-time CS lecturer since 2018</span></li>
+          <li><span>Open to</span><span>Remote, global</span></li>
         </ul>
       </div>
     </div>
+  </section>
 
-    <!-- MLM System -->
-    <div class="project-item">
-      <div class="exp-header">
-        <span class="exp-title">MLM System</span>
-        <span class="exp-org">Multi-level marketing platform, European client</span>
+  <!-- EXPERIENCE -->
+  <section class="sheet" id="experience">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 02 — EXPERIENCE</span><span>2015 → PRESENT</span></div>
+      <ul class="timeline">
+        <li class="tl-item">
+          <div class="tl-date">Apr 2025 —<br>Present</div>
+          <div class="tl-rule"></div>
+          <div class="tl-content">
+            <h3>Software Engineer</h3>
+            <span class="org">Nepit Solutions Pvt. Ltd.</span>
+            <ul>
+              <li>Lead development of an AI-enabled online booking system, building and maintaining full-stack web applications with a focus on scalability, performance, and user-centric design.</li>
+              <li>Manage server configuration and deployment across Linux environments, keeping production applications highly available and secure.</li>
+              <li>Own database schema design, query optimization, and general database management for production systems.</li>
+              <li>Build responsive, cross-browser frontend interfaces with HTML5, CSS3, Bootstrap, and JavaScript.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">Feb 2022 —<br>Mar 2025</div>
+          <div class="tl-rule"></div>
+          <div class="tl-content">
+            <h3>Software Engineer</h3>
+            <span class="org">CodigoTech Pvt. Ltd.</span>
+            <ul>
+              <li>Developed and deployed machine learning models using PyTorch and TensorFlow, iterating on architecture and training strategy to improve prediction accuracy and reduce inference time.</li>
+              <li>Ran exploratory data analysis, feature engineering, and feature scaling to prepare data pipelines for model training.</li>
+              <li>Partnered with the team on algorithm selection, working through the underlying mathematical intuition to choose the right model for each problem.</li>
+              <li>Built and performance-tested RESTful web APIs, and scraped and structured web data with BeautifulSoup.</li>
+            </ul>
+          </div>
+        </li>
+        <li class="tl-item">
+          <div class="tl-date">Jul 2015 —<br>Apr 2019</div>
+          <div class="tl-rule"></div>
+          <div class="tl-content">
+            <h3>Software Engineer</h3>
+            <span class="org">Business Intelligence Technology Solutions (BiTS)</span>
+            <ul>
+              <li>Developed web applications using Java, PHP, and front-end technologies for business clients.</li>
+              <li>Optimized complex T-SQL queries and stored procedures to reduce execution time and improve system performance.</li>
+              <li>Diagnosed and resolved slow-running production queries using SQL Profiler and SQL Server Management Studio.</li>
+              <li>Performed code reviews and debugging, including capturing and analyzing network traffic with Fiddler.</li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section class="sheet" id="projects">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 03 — SELECTED PROJECTS</span><span>03 SPECS</span></div>
+
+      <div class="proj">
+        <div class="proj-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <rect x="6" y="10" width="52" height="46" rx="1" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="6" y1="22" x2="58" y2="22" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="20" y1="10" x2="20" y2="18" stroke="var(--amber)" stroke-width="2"/>
+            <line x1="44" y1="10" x2="44" y2="18" stroke="var(--amber)" stroke-width="2"/>
+            <rect x="14" y="30" width="9" height="9" stroke="var(--teal)" stroke-width="1.5"/>
+            <rect x="28" y="30" width="9" height="9" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="42" y="30" width="9" height="9" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="14" y="42" width="9" height="9" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="28" y="42" width="9" height="9" stroke="var(--amber)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <h3>Online Booking System</h3>
+          <span class="tag">Global clients — leisure, entertainment &amp; hospitality</span>
+          <p class="desc">Configure and customize the Booked.it platform for international clients across the UK and Europe, tailoring booking flows and payment gateways to each business, working remotely across time zones.</p>
+          <ul>
+            <li>Integrate the platform with client servers for data synchronization and security compliance.</li>
+            <li>Write custom scripts to automate workflows and manage complex booking rules — lane management, group reservations, dynamic pricing.</li>
+            <li>Connect bookings with EPOS, messaging, and loyalty systems.</li>
+          </ul>
+          <p class="clientline">Clients: The Brunch Club · Lane7 · Rollacity · Spinner · Dereham Strike Bowl · Ludlow Racecourse · Manchester PitchGolf · Bugsys Bowling · Hackers POS</p>
+        </div>
       </div>
-      <div class="project-desc">
-        <ul>
-          <li>Built the platform on CodeIgniter and MySQL, implementing sponsor tree algorithms for direct, level-based, and performance-based commissions.</li>
-          <li>Designed a multi-currency, multi-gateway (PayPal, Stripe) payout system and an admin dashboard with real-time analytics; ensured GDPR compliance for European user data.</li>
-        </ul>
+
+      <div class="proj">
+        <div class="proj-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <line x1="8" y1="52" x2="56" y2="52" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="8" y1="52" x2="8" y2="12" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="14" y="34" width="7" height="18" stroke="var(--teal)" stroke-width="1.5"/>
+            <rect x="25" y="24" width="7" height="28" stroke="var(--amber)" stroke-width="1.5"/>
+            <rect x="36" y="38" width="7" height="14" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="47" y="18" width="7" height="34" stroke="var(--teal)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <h3>ePopInfo</h3>
+          <span class="tag">Government population information system</span>
+          <p class="desc">A national-level population data portal for government use, built in Java and PostgreSQL, with interactive filtering and drill-down across demographic categories.</p>
+          <ul>
+            <li>Created RESTful API endpoints for external systems to query population data.</li>
+            <li>Built an automated pipeline for processing census datasets.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="proj">
+        <div class="proj-icon">
+          <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="32" cy="10" r="4" stroke="var(--amber)" stroke-width="1.5"/>
+            <line x1="32" y1="14" x2="32" y2="24" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="32" y1="24" x2="14" y2="34" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="32" y1="24" x2="50" y2="34" stroke="var(--line)" stroke-width="1.5"/>
+            <circle cx="14" cy="38" r="4" stroke="var(--teal)" stroke-width="1.5"/>
+            <circle cx="50" cy="38" r="4" stroke="var(--teal)" stroke-width="1.5"/>
+            <line x1="14" y1="42" x2="6" y2="52" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="14" y1="42" x2="22" y2="52" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="50" y1="42" x2="42" y2="52" stroke="var(--line)" stroke-width="1.5"/>
+            <line x1="50" y1="42" x2="58" y2="52" stroke="var(--line)" stroke-width="1.5"/>
+            <circle cx="6" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5"/>
+            <circle cx="22" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5"/>
+            <circle cx="42" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5"/>
+            <circle cx="58" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5"/>
+          </svg>
+        </div>
+        <div>
+          <h3>MLM System</h3>
+          <span class="tag">Multi-level marketing platform — European client</span>
+          <p class="desc">Built on CodeIgniter and MySQL, implementing sponsor-tree algorithms for direct, level-based, and performance-based commissions.</p>
+          <ul>
+            <li>Designed a multi-currency, multi-gateway (PayPal, Stripe) payout system.</li>
+            <li>Built an admin dashboard with real-time analytics, and ensured GDPR compliance for European user data.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div style="margin-top:44px;">
+        <span class="tag" style="margin-bottom:14px; display:block;">Additional full-stack work</span>
+        <div class="more-projects">
+          <span class="chip">FRTC Sarlahi — Forest Research &amp; Training Center portal</span>
+          <span class="chip">BiTSi Inventory Solution</span>
+          <span class="chip">RPPM IMS System</span>
+          <span class="chip">SMS notification platform — Life Insurance Corporation of Nepal</span>
+          <span class="chip">Sabha Nepal ERP</span>
+        </div>
       </div>
     </div>
-
-    <!-- Additional projects note -->
-    <div style="font-size:0.95rem; margin-top:0.8rem; color:#1e3a5a; background:#f6faff; padding:0.5rem 1rem; border-radius:40px;">
-      <i class="fas fa-code-branch"></i> Additional full-stack projects include FRTC Sarlahi (Forest Research &amp; Training Center portal), BiTSi Inventory Solution, RPPM IMS System, an SMS notification platform for Life Insurance Corporation of Nepal, and Sabha Nepal ERP.
-    </div>
-  </div>
-
-  <!-- EDUCATION -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-graduation-cap"></i> Education</div>
-    <div class="edu-item">
-      <span class="edu-name">Master of Information System Engineering</span>
-      <span class="edu-place">Gandaki College of Engineering and Science, Pokhara</span>
-    </div>
-    <div class="edu-item">
-      <span class="edu-name">Bachelor of Computer Engineering</span>
-      <span class="edu-place">Kathford Int’l College of Engineering and Management, Kathmandu</span>
-    </div>
-  </div>
+  </section>
 
   <!-- RESEARCH -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-flask"></i> Research</div>
-    <div class="research-item">
-      <span class="edu-name">LVEF Estimation from Echocardiography Video</span>
-      <span class="edu-date">Independent Research, Apr 2025 – Present</span>
-      <div class="research-desc">
-        <ul>
-          <li>Designed and implemented an end-to-end contrastive learning pipeline in Python to estimate left ventricular ejection fraction (LVEF) directly from echocardiography video, using the EchoNet-Dynamic dataset.</li>
-          <li>Built a ResNet-18 encoder combined with a multi-head self-attention module for temporal modeling across video frames, trained jointly with NT-Xent and triplet-margin contrastive losses.</li>
-          <li>Authored a full literature review and research report covering the modeling approach and experimental design; currently finalizing results and preparing a journal submission.</li>
+  <section class="research" id="research">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 04 — INDEPENDENT RESEARCH</span><span>APR 2025 → PRESENT</span></div>
+      <div class="research-grid">
+        <div>
+          <span class="status">In progress — preparing journal submission</span>
+          <h2>Estimating ejection fraction directly from echocardiography video</h2>
+          <p>An end-to-end contrastive learning pipeline that estimates left ventricular ejection fraction (LVEF) from raw ultrasound video, without hand-engineered intermediate measurements.</p>
+          <ul class="specs">
+            <li><span>Dataset</span><span>EchoNet-Dynamic</span></li>
+            <li><span>Encoder</span><span>ResNet-18</span></li>
+            <li><span>Temporal model</span><span>Multi-head self-attention across frames</span></li>
+            <li><span>Objective</span><span>Joint NT-Xent + triplet-margin contrastive loss</span></li>
+            <li><span>Status</span><span>Literature review and research report authored; finalizing results</span></li>
+          </ul>
+        </div>
+        <div>
+          <svg class="echo-diagram" viewBox="0 0 460 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Diagram of the LVEF estimation pipeline: video frames feed a ResNet-18 encoder, an attention module over time, and a contrastive loss.">
+            <line class="grid-line" x1="0" y1="60" x2="460" y2="60"/>
+            <line class="grid-line" x1="0" y1="150" x2="460" y2="150"/>
+            <line class="grid-line" x1="0" y1="240" x2="460" y2="240"/>
+
+            <!-- frame stack -->
+            <rect x="24" y="26" width="46" height="34" stroke="var(--line)" stroke-width="1.5"/>
+            <rect x="34" y="36" width="46" height="34" stroke="var(--line)" stroke-width="1.5" opacity="0.7"/>
+            <rect x="44" y="46" width="46" height="34" stroke="var(--line)" stroke-width="1.5" opacity="0.45"/>
+            <text x="24" y="100" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace" font-size="11">video frames</text>
+
+            <!-- arrow -->
+            <path class="pulse" d="M110,55 L155,55" />
+            <path class="pulse" d="M148,49 L155,55 L148,61" />
+
+            <!-- encoder box -->
+            <rect x="165" y="20" width="90" height="70" stroke="var(--teal)" stroke-width="1.5" class="node"/>
+            <text x="178" y="60" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">ResNet-18</text>
+            <text x="178" y="76" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace" font-size="10">encoder</text>
+
+            <path class="pulse" d="M255,55 L300,55" />
+            <path class="pulse" d="M293,49 L300,55 L293,61" />
+
+            <!-- attention box -->
+            <rect x="310" y="20" width="120" height="70" stroke="var(--amber)" stroke-width="1.5" class="node"/>
+            <text x="322" y="52" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">Multi-head</text>
+            <text x="322" y="68" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">self-attention</text>
+            <text x="322" y="82" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace" font-size="10">(temporal)</text>
+
+            <path class="pulse" d="M370,90 L370,150" />
+            <path class="pulse" d="M364,143 L370,150 L376,143" />
+
+            <!-- ECG-style waveform representing the modeled cardiac cycle -->
+            <path class="pulse" d="M40,195 L150,195 L165,155 L180,225 L192,175 L204,195 L250,195 L268,165 L286,195 L400,195 L420,155 L440,225" />
+            <text x="40" y="220" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace" font-size="10">modeled cardiac cycle</text>
+
+            <path class="pulse" d="M240,240 L240,280" />
+            <path class="pulse" d="M234,273 L240,280 L246,273" />
+
+            <!-- loss box -->
+            <rect x="150" y="288" width="180" height="40" stroke="var(--line)" stroke-width="1.5"/>
+            <text x="165" y="313" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">NT-Xent + triplet-margin loss</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section class="sheet" id="skills">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 05 — STACK</span><span>05 GROUPS</span></div>
+      <div class="skills-grid">
+        <div class="skill-group">
+          <h3>Languages</h3>
+          <div class="skill-tags">
+            <span>Python</span><span>Java</span><span>PHP</span><span>JavaScript</span><span>SQL / T-SQL</span><span>LaTeX</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Machine learning &amp; data</h3>
+          <div class="skill-tags">
+            <span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>BeautifulSoup</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Web &amp; frameworks</h3>
+          <div class="skill-tags">
+            <span>Django</span><span>Flask</span><span>FastAPI</span><span>Streamlit</span><span>CodeIgniter</span><span>WordPress</span><span>REST APIs</span><span>jQuery</span><span>AJAX</span><span>Bootstrap</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Databases</h3>
+          <div class="skill-tags">
+            <span>MySQL</span><span>SQL Server</span><span>T-SQL</span><span>Stored procedures</span><span>PostgreSQL</span>
+          </div>
+        </div>
+        <div class="skill-group">
+          <h3>Infrastructure &amp; tools</h3>
+          <div class="skill-tags">
+            <span>Linux</span><span>Docker</span><span>Git</span><span>GitHub</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEACHING -->
+  <section class="sheet" id="teaching">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 06 — TEACHING</span><span>2018 → PRESENT</span></div>
+      <ul class="teach-list">
+        <li class="teach-item">
+          <div>
+            <h4>Lecturer (Part-time)</h4>
+            <span class="inst">St. Lawrence College, Kathmandu</span>
+          </div>
+          <div class="dates">Apr 2023 — Present</div>
+        </li>
+        <li class="teach-item">
+          <div>
+            <h4>Lecturer (Part-time)</h4>
+            <span class="inst">Institute of Engineering, Thapathali</span>
+          </div>
+          <div class="dates">May 2023 — Oct 2023</div>
+        </li>
+        <li class="teach-item">
+          <div>
+            <h4>Lecturer (Part-time)</h4>
+            <span class="inst">Janamaitri Multiple Campus, Kathmandu</span>
+          </div>
+          <div class="dates">Jul 2018 — Jan 2021</div>
+        </li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCATION & CERTS -->
+  <section class="sheet" id="education">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 07 — EDUCATION &amp; CERTIFICATES</span><span>07</span></div>
+      <div class="ed-grid">
+        <div>
+          <div class="ed-item">
+            <h4>Master of Information System Engineering</h4>
+            <span class="inst">Gandaki College of Engineering and Science, Pokhara — 2024</span>
+          </div>
+          <div class="ed-item">
+            <h4>Bachelor of Computer Engineering</h4>
+            <span class="inst">Kathford Int'l College of Engineering and Management, Kathmandu — 2015</span>
+          </div>
+        </div>
+        <ul class="cert-list">
+          <li>Programming for Everybody (Getting Started with Python)<span class="issuer">University of Michigan — Coursera</span></li>
+          <li>Python Data Structures<span class="issuer">University of Michigan — Coursera</span></li>
+          <li>Using Python to Access Web Data<span class="issuer">University of Michigan — Coursera</span></li>
+          <li>Supervised Machine Learning: Regression and Classification<span class="issuer">DeepLearning.AI — Coursera</span></li>
+          <li>Neural Networks and Deep Learning<span class="issuer">DeepLearning.AI — Coursera</span></li>
+          <li>Introduction to TensorFlow for AI, ML, and Deep Learning<span class="issuer">DeepLearning.AI — Coursera</span></li>
         </ul>
       </div>
     </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="sheet contact" id="contact">
+    <div class="wrap">
+      <div class="sheet-label"><span>SHEET 08 — CONTACT</span><span>END OF SET</span></div>
+      <h2>Working on something that needs both a model and a production system behind it?</h2>
+      <p>I'm open to remote roles and collaborations across ML engineering and full-stack development.</p>
+      <div class="contact-grid">
+        <ul class="contact-list">
+          <li><span>Email</span><a href="mailto:riddhikshrestha@gmail.com">riddhikshrestha@gmail.com</a></li>
+          <li><span>Phone</span><a href="tel:+9779841037737">+977-9841037737</a></li>
+          <li><span>LinkedIn</span><a href="https://linkedin.com/in/riddhikshrestha" target="_blank" rel="noopener">linkedin.com/in/riddhikshrestha</a></li>
+          <li><span>GitHub</span><a href="https://github.com/riddhikshrestha" target="_blank" rel="noopener">github.com/riddhikshrestha</a></li>
+          <li><span>Location</span><span style="color:#fff;">Kathmandu, Nepal</span></li>
+        </ul>
+        <div>
+          <a class="btn btn-primary" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Download full résumé</a>
+          <p class="reference-note">Reference — Dr. Badri Adhikari<br>St. Louis, Missouri, United States<br>(contact details available on request)</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="wrap" style="display:flex; justify-content:space-between; width:100%; flex-wrap:wrap; gap:10px;">
+    <span>© 2026 Riddi Kumar Shrestha</span>
+    <span>Built with HTML, CSS &amp; JavaScript</span>
   </div>
+</footer>
 
-  <!-- TEACHING -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-chalkboard-teacher"></i> Teaching Experience</div>
-    <div class="teaching-item">
-      <span class="edu-name">Lecturer (Part-time), St. Lawrence College, Kathmandu</span>
-      <span class="edu-date">Apr 2023 – Present</span>
-    </div>
-    <div class="teaching-item">
-      <span class="edu-name">Lecturer (Part-time), Institute of Engineering, Thapathali</span>
-      <span class="edu-date">May 2023 – Oct 2023</span>
-    </div>
-    <div class="teaching-item">
-      <span class="edu-name">Lecturer (Part-time), Janamaitri Multiple Campus, Kathmandu</span>
-      <span class="edu-date">Jul 2018 – Jan 2021</span>
-    </div>
-  </div>
-
-  <!-- CERTIFICATES -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-certificate"></i> Certificates</div>
-    <div class="cert-list">
-      <span><i class="fas fa-check-circle"></i> Programming for Everybody (Getting Started with Python), University of Michigan (Coursera)</span>
-      <span><i class="fas fa-check-circle"></i> Python Data Structures, University of Michigan (Coursera)</span>
-      <span><i class="fas fa-check-circle"></i> Using Python to Access Web Data, University of Michigan (Coursera)</span>
-      <span><i class="fas fa-check-circle"></i> Supervised Machine Learning: Regression and Classification, DeepLearning.AI (Coursera)</span>
-      <span><i class="fas fa-check-circle"></i> Neural Networks and Deep Learning, DeepLearning.AI (Coursera)</span>
-      <span><i class="fas fa-check-circle"></i> Introduction to TensorFlow for Artificial Intelligence, Machine Learning, and Deep Learning, DeepLearning.AI (Coursera)</span>
-    </div>
-  </div>
-
-  <!-- REFERENCES -->
-  <div class="section">
-    <div class="section-title"><i class="fas fa-address-card"></i> References</div>
-    <div class="ref-item">
-      <i class="fas fa-user-circle"></i> Dr. Badri Adhikari · St Louis, Missouri, United States
-    </div>
-  </div>
-
-  <!-- small footer note: page numbers are not rendered, but original had "1" top-left -->
-  <!-- <div style="margin-top: 2rem; font-size: 0.75rem; color: #b0c6db; text-align: right; border-top: 1px solid #eef4fb; padding-top: 0.6rem;">
-    <i class="fas fa-print"></i> Riddi Kumar Shrestha · CV
-  </div> -->
-
-</div>
-<!-- end cv-container -->
-
-<!-- tiny JS only for interaction (static) -->
 <script>
-  (function() {
-    // Just a static page – no dynamic content needed.
-    // But we keep a small console greeting.
-    console.log("Riddi Kumar Shrestha · CV static page loaded.");
+  // Highlight the active nav link based on scroll position.
+  (function(){
+    var sections = document.querySelectorAll('main section[id]');
+    var links = document.querySelectorAll('.nav-links a');
+    if(!sections.length || !links.length) return;
+
+    var map = {};
+    links.forEach(function(l){
+      var id = l.getAttribute('href').replace('#','');
+      map[id] = l;
+    });
+
+    var observer = new IntersectionObserver(function(entries){
+      entries.forEach(function(entry){
+        var link = map[entry.target.id];
+        if(!link) return;
+        if(entry.isIntersecting){
+          links.forEach(function(l){ l.style.color = ''; l.style.borderColor = 'transparent'; });
+          link.style.color = 'var(--amber-dark)';
+          link.style.borderColor = 'var(--amber)';
+        }
+      });
+    }, { rootMargin: '-45% 0px -50% 0px', threshold: 0 });
+
+    sections.forEach(function(s){ observer.observe(s); });
   })();
 </script>
-
 </body>
 </html>
