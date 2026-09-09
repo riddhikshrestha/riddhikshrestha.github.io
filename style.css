@@ -11,8 +11,8 @@
   --muted: #5B6B77;
   --muted-on-ink: #A9BDCF;
   --teal: #4C8B72;
-  --display: 'Space Grotesk', sans-serif;
-  --body: 'IBM Plex Sans', sans-serif;
+  --display: 'Montserrat', sans-serif;
+  --body: 'Montserrat', sans-serif;
   --mono: 'IBM Plex Mono', monospace;
   --max: 1080px;
 }
@@ -209,9 +209,28 @@ header.nav {
   mask-image: radial-gradient(ellipse at 30% 20%, black 40%, transparent 78%);
 }
 
+#neural-canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  pointer-events: auto;
+  opacity: 0.55;
+}
+
 .hero-inner {
   position: relative;
   z-index: 2;
+  pointer-events: none;
+}
+
+.hero-inner a,
+.hero-inner button,
+.hero-inner input,
+.hero-inner .hero-avatar-wrap {
+  pointer-events: auto;
 }
 
 .hero-grid-layout {
