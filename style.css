@@ -187,6 +187,33 @@ header.nav {
 
 .nav-toggle {
   display: none;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 6px;
+  flex-direction: column;
+  gap: 5px;
+  z-index: 100;
+}
+
+.nav-toggle span {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--ink);
+  transition: transform 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-toggle.open span:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+  opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
 }
 
 /* ---------- Hero ---------- */
@@ -1043,10 +1070,22 @@ footer.site-footer {
 }
 
 /* ---------- Responsive ---------- */
+html, body {
+  overflow-x: hidden;
+}
+
 @media (max-width: 920px) {
+  .wrap {
+    padding: 0 20px;
+  }
+
+  .hero {
+    padding: 130px 0 64px;
+  }
+
   .hero-grid-layout {
     grid-template-columns: 1fr;
-    gap: 36px;
+    gap: 32px;
   }
 
   .hero-right {
@@ -1055,19 +1094,17 @@ footer.site-footer {
 
   .hero-avatar-wrap {
     max-width: 240px;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
   }
 
   .hero-avatar {
-    height: 270px;
+    height: 260px;
   }
 
   .hero-name {
     white-space: normal;
+    font-size: clamp(28px, 5.5vw, 42px);
   }
-}
-
-@media (max-width: 860px) {
 
   .about-grid,
   .research-grid,
@@ -1076,47 +1113,100 @@ footer.site-footer {
     grid-template-columns: 1fr;
     gap: 36px;
   }
-
-  .skills-grid {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .tl-item {
-    grid-template-columns: 100px 1px 1fr;
-  }
-
-  .proj {
-    grid-template-columns: 56px 1fr;
-  }
-
-  .proj-icon svg {
-    width: 44px;
-    height: 44px;
-  }
 }
 
-@media (max-width: 640px) {
-  .hero-name {
-    font-size: clamp(24px, 6.5vw, 36px);
-    white-space: normal;
-  }
-
-  .hero-name-row {
-    gap: 14px;
-  }
-
-  .hero-avatar-ring {
-    width: 84px;
-    height: 84px;
-    padding: 3px;
+@media (max-width: 768px) {
+  .nav-toggle {
+    display: flex;
   }
 
   .nav-links {
-    display: none;
+    display: flex;
+    position: fixed;
+    top: 64px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--paper-2);
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 24px;
+    padding: 32px;
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    border-bottom: 1px solid var(--line-soft);
+    z-index: 90;
+  }
+
+  .nav-links.open {
+    transform: translateY(0);
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .nav-links a {
+    font-size: 17px;
+    font-weight: 500;
   }
 
   .skills-grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+  }
+
+  .proj {
     grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .proj-icon svg {
+    width: 48px;
+    height: 48px;
+  }
+
+  .hero-cta {
+    flex-direction: column;
+    width: 100%;
+  }
+
+  .hero-cta .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .research .specs li {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .research .specs li span:first-child {
+    width: auto;
+  }
+}
+
+@media (max-width: 580px) {
+  .tl-item {
+    grid-template-columns: 1fr;
+    gap: 10px;
+    padding-bottom: 36px;
+    border-left: 2px solid var(--amber);
+    padding-left: 16px;
+  }
+
+  .tl-rule {
+    display: none;
+  }
+
+  .tl-content {
+    padding-left: 0;
+  }
+
+  .tl-date {
+    font-weight: 600;
+    color: var(--amber-dark);
   }
 
   .teach-item {
@@ -1128,11 +1218,36 @@ footer.site-footer {
     text-align: left;
   }
 
-  .sheet {
-    padding: 72px 0 64px;
+  .skills-grid {
+    grid-template-columns: 1fr;
   }
 
-  .hero {
-    padding: 140px 0 72px;
+  .contact-list li {
+    word-break: break-word;
+    overflow-wrap: anywhere;
+  }
+
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 14px;
+  }
+
+  .footer-socials {
+    justify-content: center;
+    gap: 14px;
+  }
+
+  .sheet {
+    padding: 64px 0 52px;
+  }
+
+  .hero-avatar-wrap {
+    max-width: 200px;
+  }
+
+  .hero-avatar {
+    height: 220px;
   }
 }
