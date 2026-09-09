@@ -430,14 +430,20 @@
             </div>
           </div>
           <ul class="cert-list">
-            <li><a href="https://coursera.org/share/984277cf610e78d4589ceb8808079af5">Programming for Everybody (Getting Started with Python)</a><span class="issuer">University of Michigan —
+            <li><a href="https://coursera.org/share/984277cf610e78d4589ceb8808079af5" target="_blank" rel="noopener">Programming for Everybody (Getting
+                Started with Python)</a><span class="issuer">University of Michigan —
                 Coursera</span></li>
-            <li><a href="https://coursera.org/share/97b3f31d801f4fbe51eb7a5f4d8b6094">Python Data Structures</a><span class="issuer">University of Michigan — Coursera</span></li>
-            <li><a href="https://coursera.org/share/b2470313d3c2de864e54874f6c7e21a3">Using Python to Access Web Data</a><span class="issuer">University of Michigan — Coursera</span></li>
-            <li><a href="https://www.coursera.org/account/accomplishments/verify/EUN2SKZFGP8H">Supervised Machine Learning: Regression and Classification<span class="issuer">DeepLearning.AI —
-                Coursera</a></span></li>
-            <li><a href="https://coursera.org/share/854c5424a2b2562f42279df769a95a1a">Neural Networks and Deep Learning</a><span class="issuer">DeepLearning.AI — Coursera</span></li>
-            <li><a href="https://www.coursera.org/account/accomplishments/certificate/DBKYHHRF833J">Introduction to TensorFlow for AI, ML, and Deep Learning</a><span class="issuer">DeepLearning.AI —
+            <li><a href="https://coursera.org/share/97b3f31d801f4fbe51eb7a5f4d8b6094" target="_blank" rel="noopener">Python Data Structures</a><span
+                class="issuer">University of Michigan — Coursera</span></li>
+            <li><a href="https://coursera.org/share/b2470313d3c2de864e54874f6c7e21a3" target="_blank" rel="noopener">Using Python to Access Web
+                Data</a><span class="issuer">University of Michigan — Coursera</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/verify/EUN2SKZFGP8H" target="_blank" rel="noopener">Supervised Machine
+                Learning: Regression and Classification</a><span class="issuer">DeepLearning.AI —
+                Coursera</span></li>
+            <li><a href="https://coursera.org/share/854c5424a2b2562f42279df769a95a1a" target="_blank" rel="noopener">Neural Networks and Deep
+                Learning</a><span class="issuer">DeepLearning.AI — Coursera</span></li>
+            <li><a href="https://www.coursera.org/account/accomplishments/certificate/DBKYHHRF833J" target="_blank" rel="noopener">Introduction to
+                TensorFlow for AI, ML, and Deep Learning</a><span class="issuer">DeepLearning.AI —
                 Coursera</span></li>
           </ul>
         </div>
@@ -449,25 +455,46 @@
       <div class="wrap">
         <div class="sheet-label"><span>CONTACT</span></div>
         <h2>Working on something that needs both a model and a production system behind it?</h2>
-        <p>I'm open to remote roles and collaborations across ML engineering and full-stack development.</p>
+        <p>Send a message or reach out — open to remote roles and collaborations across ML engineering and full-stack development.</p>
         <div class="contact-grid">
-          <ul class="contact-list">
-            <li><span>Email</span><a href="mailto:riddhikshrestha@gmail.com">riddhikshrestha@gmail.com</a></li>
-            <li><span>Phone</span><a href="tel:+9779841037737">+977-9841037737</a></li>
-            <li><span>LinkedIn</span><a href="https://linkedin.com/in/riddhikshrestha" target="_blank"
-                rel="noopener">linkedin.com/in/riddhikshrestha</a></li>
-            <li><span>GitHub</span><a href="https://github.com/riddhikshrestha" target="_blank"
-                rel="noopener">github.com/riddhikshrestha</a></li>
-            <li><span>Facebook</span><a href="https://facebook.com/riddhikshrestha" target="_blank"
-                rel="noopener">facebook.com/riddhikshrestha</a></li>
-            <li><span>YouTube</span><a href="https://youtube.com/@riddhikshrestha" target="_blank"
-                rel="noopener">youtube.com/@riddhikshrestha</a></li>
-            <li><span>Location</span><span style="color:#fff;">Kathmandu, Nepal</span></li>
-          </ul>
-          <div>
-            <a class="btn btn-primary" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Download full resume</a>
-            <p class="reference-note">Reference — Dr. Badri Adhikari<br>St. Louis, Missouri, United States<br>(contact
-              details available on request)</p>
+          <form id="contact-form" class="contact-form" action="#" method="POST">
+            <div class="form-group">
+              <label for="contact-name">Name</label>
+              <input type="text" id="contact-name" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" id="contact-email" name="email" placeholder="your.email@example.com" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-subject">Subject</label>
+              <input type="text" id="contact-subject" name="subject" placeholder="Project inquiry / Hello" required>
+            </div>
+            <div class="form-group">
+              <label for="contact-message">Message</label>
+              <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+            <div id="form-status" class="form-status" aria-live="polite"></div>
+          </form>
+
+          <div class="contact-map-wrap">
+            <div class="map-frame">
+              <iframe
+                title="Google Map showing Kathmandu, Nepal"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625952077!2d85.2911132!3d27.7089603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c15651680d6!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1710000000000!5m2!1sen!2snp"
+                width="100%"
+                height="310"
+                style="border:0;"
+                allowfullscreen=""
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade">
+              </iframe>
+            </div>
+            <div class="contact-meta-footer">
+              <a class="btn btn-ghost" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Download full resume ↓</a>
+              <!-- <p class="reference-note">Location: Kathmandu, Nepal<br>Reference — Dr. Badri Adhikari (contact details available on request)</p> -->
+            </div>
           </div>
         </div>
       </div>
