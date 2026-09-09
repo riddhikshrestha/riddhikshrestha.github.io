@@ -25,6 +25,27 @@
   sections.forEach(function (s) { observer.observe(s); });
 })();
 
+// Mobile Navigation Toggle
+(function () {
+  var navToggle = document.querySelector('.nav-toggle');
+  var navLinks = document.querySelector('.nav-links');
+  if (!navToggle || !navLinks) return;
+
+  navToggle.addEventListener('click', function () {
+    var isOpen = navToggle.classList.toggle('open');
+    navLinks.classList.toggle('open', isOpen);
+    navToggle.setAttribute('aria-expanded', isOpen);
+  });
+
+  navLinks.querySelectorAll('a').forEach(function (link) {
+    link.addEventListener('click', function () {
+      navToggle.classList.remove('open');
+      navLinks.classList.remove('open');
+      navToggle.setAttribute('aria-expanded', 'false');
+    });
+  });
+})();
+
 // Animated Neural Network Canvas Background
 (function () {
   var canvas = document.getElementById('neural-canvas');
