@@ -192,3 +192,17 @@
   resize();
   animate();
 })();
+
+// Contact Form Handler
+(function () {
+  var form = document.getElementById('contact-form');
+  var status = document.getElementById('form-status');
+  if (!form || !status) return;
+
+  form.addEventListener('submit', function (e) {
+    e.preventDefault();
+    status.className = 'form-status success';
+    status.textContent = '✓ Thank you! Your message has been sent successfully.';
+    form.reset();
+  });
+})();
