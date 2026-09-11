@@ -9,534 +9,392 @@
     content="Portfolio of Riddi Kumar Shrestha, software engineer working across machine learning and full-stack development, based in Kathmandu, Nepal.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap"
     rel="stylesheet">
+
+  <!-- Bootstrap 5.3.3 CSS & Bootstrap Icons -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body data-bs-spy="scroll" data-bs-target="#portfolioNav" data-bs-offset="100">
 
-  <header class="nav">
-    <div class="nav-inner">
-      <a href="#top" style="text-decoration:none; display:flex; align-items:center; gap:12px;">
-        <span class="mark">RS</span>
+  <!-- TOP MINIMALIST HEADER NAVBAR -->
+  <header class="navbar navbar-expand-md sticky-top site-header border-bottom bg-white">
+    <div class="container">
+      <a class="navbar-brand fw-bold text-dark font-monospace fs-5" href="#top">
+        riddikshrestha.com.np
       </a>
-      <ul class="nav-links">
-        <li><a href="#profile">Profile</a></li>
-        <li><a href="#experience">Experience</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#research">Research</a></li>
-        <li><a href="#skills">Stack</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-      <a class="nav-cta" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Resume ↓</a>
-      <button class="nav-toggle" aria-label="Toggle navigation" aria-expanded="false">
-        <span></span>
-        <span></span>
-        <span></span>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+        data-bs-target="#portfolioNav" aria-controls="portfolioNav" aria-expanded="false"
+        aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
       </button>
+      <div class="collapse navbar-collapse justify-content-end" id="portfolioNav">
+        <ul class="navbar-nav mb-2 mb-md-0 gap-md-3 font-monospace small">
+          <li class="nav-item"><a class="nav-link text-secondary" href="#about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="#experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="#research">Research</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="#teaching">Teaching</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="#skills">Stack</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="#education">Education</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="#contact">Contact</a></li>
+        </ul>
+      </div>
     </div>
   </header>
 
-  <main id="top">
+  <!-- MAIN 2-COLUMN CONTAINER -->
+  <main id="top" class="py-4 py-md-5">
+    <div class="container">
+      <div class="row g-4 g-lg-5">
 
-    <!-- HERO -->
-    <section class="hero">
-      <div class="hero-grid"></div>
-      <canvas id="neural-canvas"></canvas>
-      <div class="wrap hero-inner">
-        <div class="hero-grid-layout">
-          <div class="hero-left">
-            <div class="eyebrow-tech"><span class="dot"></span>Kathmandu, Nepal</div>
-            <h1 class="hero-name">Riddi Kumar Shrestha</h1>
-            <span class="role">Software Engineer — Machine Learning &amp; Full-Stack</span>
-            <p class="lede">Seven-plus years building systems end to end: production web platforms during the day, and —
-              on
-              the side — a contrastive-learning model that reads heart function straight out of ultrasound video.</p>
-            <div class="hero-cta">
-              <a class="btn btn-primary" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Download resume</a>
-              <a class="btn btn-ghost" href="#projects">View projects</a>
+        <!-- LEFT SIDEBAR -->
+        <aside class="col-lg-3 col-md-4">
+          <div class="sidebar-inner sticky-top-sidebar">
+            <div class="text-center text-md-start mb-3">
+              <img src="Profile.jpg" alt="Riddi Kumar Shrestha" class="profile-avatar rounded-circle mb-3 shadow-sm">
+              <h1 class="h4 fw-bold text-dark mb-1">Riddi Kumar Shrestha</h1>
+              <p class="small text-secondary mb-3 leading-tight">
+                Software Engineer — Machine Learning &amp; Full-Stack Development
+              </p>
             </div>
-            <svg class="waveform" viewBox="0 0 640 120" fill="none" xmlns="http://www.w3.org/2000/svg"
-              aria-hidden="true">
-              <line class="baseline" x1="0" y1="90" x2="640" y2="90" />
-              <path d="M0,90 L110,90 L130,40 L150,100 L165,20 L180,90 L230,90 L250,60 L270,90 L640,90" />
-            </svg>
+
+            <!-- SIDEBAR ICON LINKS -->
+            <ul class="list-unstyled sidebar-links font-monospace small mb-4">
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-geo-alt-fill text-danger fs-6"></i>
+                <span class="text-dark">Kathmandu, Nepal</span>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-building text-primary fs-6"></i>
+                <span class="text-dark">Nepit Solutions Pvt. Ltd.</span>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-file-earmark-pdf-fill text-danger fs-6"></i>
+                <a href="Riddi_Kumar_Shrestha_Resume.pdf" download
+                  class="text-primary text-decoration-underline fw-semibold">Resume (PDF)</a>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-envelope-fill text-secondary fs-6"></i>
+                <a href="#contact" class="text-primary text-decoration-none">Email / Contact</a>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-journal-medical text-success fs-6"></i>
+                <a href="#research" class="text-primary text-decoration-none">EchoNet Research</a>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-github text-dark fs-6"></i>
+                <a href="https://github.com/riddhikshrestha" target="_blank" rel="noopener"
+                  class="text-primary text-decoration-none">GitHub</a>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-linkedin text-primary fs-6"></i>
+                <a href="https://linkedin.com/in/riddhikshrestha" target="_blank" rel="noopener"
+                  class="text-primary text-decoration-none">LinkedIn</a>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-youtube text-danger fs-6"></i>
+                <a href="https://youtube.com/@riddhikshrestha" target="_blank" rel="noopener"
+                  class="text-primary text-decoration-none">YouTube</a>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-facebook text-primary fs-6"></i>
+                <a href="https://facebook.com/riddhikshrestha" target="_blank" rel="noopener"
+                  class="text-primary text-decoration-none">Facebook</a>
+              </li>
+              <li class="mb-2 d-flex align-items-center gap-2">
+                <i class="bi bi-medium text-dark fs-6"></i>
+                <a href="https://medium.com/@riddhikshrestha" target="_blank" rel="noopener"
+                  class="text-primary text-decoration-none">Medium</a>
+              </li>
+            </ul>
           </div>
-          <div class="hero-right">
-            <div class="hero-avatar-wrap">
-              <img src="Profile.JPG" alt="Riddi Kumar Shrestha" class="hero-avatar">
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </aside>
 
-    <!-- ABOUT -->
-    <section class="sheet" id="profile">
-      <div class="wrap">
-        <div class="sheet-label"><span>PROFILE</span></div>
-        <div class="about-grid">
-          <div>
-            <p class="lead-text">I lead development of an <strong>AI-enabled booking platform</strong> at Nepit
-              Solutions — architecting the application, owning the data layer, and running the server infrastructure it
-              sits on. Before that, I spent three years building and deploying <strong>PyTorch and TensorFlow
-                models</strong>, and before that, several years writing Java and PHP for business clients. I also teach
-              computer science part-time at the university level.</p>
-            <p class="lead-text" style="margin-top:22px;">My work sits at the join between the two disciplines: ML
-              systems that need to actually ship, and full-stack systems that need to be built by someone who
-              understands the model underneath.</p>
-          </div>
-          <ul class="meta-list">
-            <li><span>Based in</span><span>Kathmandu, Nepal</span></li>
-            <li><span>Experience</span><span>7+ years</span></li>
-            <li><span>Current role</span><span>Software Engineer, Nepit Solutions</span></li>
-            <li><span>Focus</span><span>ML systems &amp; full-stack engineering</span></li>
-            <li><span>Teaching</span><span>Part-time CS lecturer since 2018</span></li>
-            <li><span>Open to</span><span>Remote, global</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
+        <!-- RIGHT CONTENT COLUMN -->
+        <div class="col-lg-9 col-md-8">
 
-    <!-- EXPERIENCE -->
-    <section class="sheet" id="experience">
-      <div class="wrap">
-        <div class="sheet-label"><span>EXPERIENCE</span></div>
-        <ul class="timeline">
-          <li class="tl-item">
-            <div class="tl-date">Apr 2025 —<br>Present</div>
-            <div class="tl-rule"></div>
-            <div class="tl-content">
-              <h3>Software Engineer</h3>
-              <span class="org">Nepit Solutions Pvt. Ltd.</span>
-              <ul>
-                <li>Lead development of an AI-enabled online booking system, building and maintaining full-stack web
-                  applications with a focus on scalability, performance, and user-centric design.</li>
-                <li>Manage server configuration and deployment across Linux environments, keeping production
-                  applications highly available and secure.</li>
-                <li>Own database schema design, query optimization, and general database management for production
-                  systems.</li>
-                <li>Build responsive, cross-browser frontend interfaces with HTML5, CSS3, Bootstrap, and JavaScript.
-                </li>
-              </ul>
-            </div>
-          </li>
-          <li class="tl-item">
-            <div class="tl-date">Feb 2022 —<br>Mar 2025</div>
-            <div class="tl-rule"></div>
-            <div class="tl-content">
-              <h3>Software Engineer</h3>
-              <span class="org">CodigoTech Pvt. Ltd.</span>
-              <ul>
-                <li>Developed and deployed machine learning models using PyTorch and TensorFlow, iterating on
-                  architecture and training strategy to improve prediction accuracy and reduce inference time.</li>
-                <li>Ran exploratory data analysis, feature engineering, and feature scaling to prepare data pipelines
-                  for model training.</li>
-                <li>Partnered with the team on algorithm selection, working through the underlying mathematical
-                  intuition to choose the right model for each problem.</li>
-                <li>Built and performance-tested RESTful web APIs, and scraped and structured web data with
-                  BeautifulSoup.</li>
-              </ul>
-            </div>
-          </li>
-          <li class="tl-item">
-            <div class="tl-date">Jul 2015 —<br>Apr 2019</div>
-            <div class="tl-rule"></div>
-            <div class="tl-content">
-              <h3>Software Engineer</h3>
-              <span class="org">Business Intelligence Technology Solutions (BiTS)</span>
-              <ul>
-                <li>Developed web applications using Java, PHP, and front-end technologies for business clients.</li>
-                <li>Optimized complex T-SQL queries and stored procedures to reduce execution time and improve system
-                  performance.</li>
-                <li>Diagnosed and resolved slow-running production queries using SQL Profiler and SQL Server Management
-                  Studio.</li>
-                <li>Performed code reviews and debugging, including capturing and analyzing network traffic with
-                  Fiddler.</li>
-              </ul>
-            </div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- PROJECTS -->
-    <section class="sheet" id="projects">
-      <div class="wrap">
-        <div class="sheet-label"><span>SELECTED PROJECTS</span></div>
-
-        <div class="proj">
-          <div class="proj-icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <rect x="6" y="10" width="52" height="46" rx="1" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="6" y1="22" x2="58" y2="22" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="20" y1="10" x2="20" y2="18" stroke="var(--amber)" stroke-width="2" />
-              <line x1="44" y1="10" x2="44" y2="18" stroke="var(--amber)" stroke-width="2" />
-              <rect x="14" y="30" width="9" height="9" stroke="var(--teal)" stroke-width="1.5" />
-              <rect x="28" y="30" width="9" height="9" stroke="var(--line)" stroke-width="1.5" />
-              <rect x="42" y="30" width="9" height="9" stroke="var(--line)" stroke-width="1.5" />
-              <rect x="14" y="42" width="9" height="9" stroke="var(--line)" stroke-width="1.5" />
-              <rect x="28" y="42" width="9" height="9" stroke="var(--amber)" stroke-width="1.5" />
-            </svg>
-          </div>
-          <div>
-            <h3>Online Booking System</h3>
-            <span class="tag">Global clients — leisure, entertainment &amp; hospitality</span>
-            <p class="desc">Configure and customize the Booked.it platform for international clients across the UK and
-              Europe, tailoring booking flows and payment gateways to each business, working remotely across time zones.
+          <!-- ABOUT -->
+          <section id="about" class="mb-5 pb-4 border-bottom">
+            <h2 class="h3 fw-bold text-dark mb-3">About</h2>
+            <p class="lead-text text-dark fs-6 mb-4">
+              I'm a Software Engineer leading development of an <strong>AI-enabled online booking platform</strong> at
+              Nepit Solutions in Kathmandu, Nepal. My work spans over seven years across machine learning model
+              development and full-stack web engineering, paired with part-time university computer science lecturing.
             </p>
-            <ul>
-              <li>Integrate the platform with client servers for data synchronization and security compliance.</li>
-              <li>Write custom scripts to automate workflows and manage complex booking rules — lane management, group
-                reservations, dynamic pricing.</li>
-              <li>Connect bookings with EPOS, messaging, and loyalty systems.</li>
-            </ul>
-            <p class="clientline">Clients: The Brunch Club · Lane7 · Rollacity · Spinner · Dereham Strike Bowl · Ludlow
-              Racecourse · Manchester PitchGolf · Bugsys Bowling · Hackers POS</p>
-          </div>
-        </div>
 
-        <div class="proj">
-          <div class="proj-icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <line x1="8" y1="52" x2="56" y2="52" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="8" y1="52" x2="8" y2="12" stroke="var(--line)" stroke-width="1.5" />
-              <rect x="14" y="34" width="7" height="18" stroke="var(--teal)" stroke-width="1.5" />
-              <rect x="25" y="24" width="7" height="28" stroke="var(--amber)" stroke-width="1.5" />
-              <rect x="36" y="38" width="7" height="14" stroke="var(--line)" stroke-width="1.5" />
-              <rect x="47" y="18" width="7" height="34" stroke="var(--teal)" stroke-width="1.5" />
-            </svg>
-          </div>
-          <div>
-            <h3>ePopInfo</h3>
-            <span class="tag">Government population information system</span>
-            <p class="desc">A national-level population data portal for government use, built in Java and PostgreSQL,
-              with interactive filtering and drill-down across demographic categories.</p>
-            <ul>
-              <li>Created RESTful API endpoints for external systems to query population data.</li>
-              <li>Built an automated pipeline for processing census datasets.</li>
-            </ul>
-          </div>
-        </div>
+            <h3 class="h5 fw-bold text-dark mt-4 mb-3">Core Areas of Work:</h3>
+            <ol class="focus-list list-unstyled ps-0">
+              <li class="mb-4">
+                <h4 class="h6 fw-bold text-dark mb-1">1. Machine Learning &amp; Echocardiography Video Analysis</h4>
+                <p class="text-secondary mb-0">
+                  Building an end-to-end contrastive learning pipeline (ResNet-18 encoder paired with temporal
+                  multi-head self-attention) that estimates left ventricular ejection fraction (LVEF) straight out of
+                  raw ultrasound video, bypassing hand-engineered intermediate measurements.
+                </p>
+              </li>
+              <li class="mb-4">
+                <h4 class="h6 fw-bold text-dark mb-1">2. Full-Stack AI Platform &amp; Production Infrastructure</h4>
+                <p class="text-secondary mb-0">
+                  Architecting scalable web applications, designing optimized database schemas (PostgreSQL / MySQL /
+                  T-SQL), creating robust RESTful APIs, and managing secure Linux server environments for international
+                  clients across Europe and the UK.
+                </p>
+              </li>
+              <li class="mb-4">
+                <h4 class="h6 fw-bold text-dark mb-1">3. Computer Science Education &amp; University Lecturing</h4>
+                <p class="text-secondary mb-0">
+                  Teaching undergraduate computer science courses part-time since 2018 at St. Lawrence College,
+                  Institute of Engineering Thapathali, and Janamaitri Campus — bridging algorithmic foundations with
+                  real-world software engineering practices.
+                </p>
+              </li>
+            </ol>
+          </section>
 
-        <div class="proj">
-          <div class="proj-icon">
-            <svg viewBox="0 0 64 64" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <circle cx="32" cy="10" r="4" stroke="var(--amber)" stroke-width="1.5" />
-              <line x1="32" y1="14" x2="32" y2="24" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="32" y1="24" x2="14" y2="34" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="32" y1="24" x2="50" y2="34" stroke="var(--line)" stroke-width="1.5" />
-              <circle cx="14" cy="38" r="4" stroke="var(--teal)" stroke-width="1.5" />
-              <circle cx="50" cy="38" r="4" stroke="var(--teal)" stroke-width="1.5" />
-              <line x1="14" y1="42" x2="6" y2="52" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="14" y1="42" x2="22" y2="52" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="50" y1="42" x2="42" y2="52" stroke="var(--line)" stroke-width="1.5" />
-              <line x1="50" y1="42" x2="58" y2="52" stroke="var(--line)" stroke-width="1.5" />
-              <circle cx="6" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5" />
-              <circle cx="22" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5" />
-              <circle cx="42" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5" />
-              <circle cx="58" cy="56" r="3.5" stroke="var(--line)" stroke-width="1.5" />
-            </svg>
-          </div>
-          <div>
-            <h3>MLM System</h3>
-            <span class="tag">Multi-level marketing platform — European client</span>
-            <p class="desc">Built on CodeIgniter and MySQL, implementing sponsor-tree algorithms for direct,
-              level-based, and performance-based commissions.</p>
-            <ul>
-              <li>Designed a multi-currency, multi-gateway (PayPal, Stripe) payout system.</li>
-              <li>Built an admin dashboard with real-time analytics, and ensured GDPR compliance for European user data.
+          <!-- SELECT PROFESSIONAL ACTIVITIES / EXPERIENCE -->
+          <section id="experience" class="mb-5 pb-4 border-bottom">
+            <h2 class="h3 fw-bold text-dark mb-4">Select Professional Activities</h2>
+
+            <ul class="activity-list list-unstyled ps-0">
+              <li class="mb-4">
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-baseline mb-1">
+                  <h3 class="h6 fw-bold text-dark mb-0">Software Engineer — Nepit Solutions Pvt. Ltd.</h3>
+                  <span class="font-monospace small text-muted">Apr 2025 – Present</span>
+                </div>
+                <ul class="text-secondary small ps-3 mb-0">
+                  <li>Lead full-stack engineering of an AI-enabled online booking engine, scaling backend performance
+                    and database query optimization.</li>
+                  <li>Manage Linux production server deployments, system security, and infrastructure availability.</li>
+                </ul>
+              </li>
+
+              <li class="mb-4">
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-baseline mb-1">
+                  <h3 class="h6 fw-bold text-dark mb-0">Part-Time CS Lecturer — St. Lawrence College</h3>
+                  <span class="font-monospace small text-muted">Apr 2023 – Present</span>
+                </div>
+                <p class="text-secondary small mb-0">Lecturing undergraduate students on computer science, web
+                  technologies, and software engineering methodologies.</p>
+              </li>
+
+              <li class="mb-4">
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-baseline mb-1">
+                  <h3 class="h6 fw-bold text-dark mb-0">Software Engineer — CodigoTech Pvt. Ltd.</h3>
+                  <span class="font-monospace small text-muted">Feb 2022 – Mar 2025</span>
+                </div>
+                <ul class="text-secondary small ps-3 mb-0">
+                  <li>Built and deployed deep learning models using PyTorch and TensorFlow, refining training pipelines
+                    to improve prediction accuracy.</li>
+                  <li>Engineered exploratory data analysis pipelines, RESTful APIs, and automated web scrapers with
+                    BeautifulSoup.</li>
+                </ul>
+              </li>
+
+              <li class="mb-4">
+                <div class="d-flex flex-column flex-sm-row justify-content-between align-items-sm-baseline mb-1">
+                  <h3 class="h6 fw-bold text-dark mb-0">Software Engineer — Business Intelligence Technology Solutions
+                    (BiTS)</h3>
+                  <span class="font-monospace small text-muted">Jul 2015 – Apr 2019</span>
+                </div>
+                <ul class="text-secondary small ps-3 mb-0">
+                  <li>Developed enterprise web platforms using Java, PHP, and front-end technologies for commercial
+                    clients.</li>
+                  <li>Diagnosed and optimized complex T-SQL queries and stored procedures in SQL Server.</li>
+                </ul>
               </li>
             </ul>
-          </div>
-        </div>
+          </section>
 
-        <div style="margin-top:44px;">
-          <span class="tag" style="margin-bottom:14px; display:block;">Additional full-stack work</span>
-          <div class="more-projects">
-            <span class="chip">FRTC Sarlahi — Forest Research &amp; Training Center portal</span>
-            <span class="chip">BiTSi Inventory Solution</span>
-            <span class="chip">RPPM IMS System</span>
-            <span class="chip">SMS notification platform — Life Insurance Corporation of Nepal</span>
-            <span class="chip">Sabha Nepal ERP</span>
-          </div>
-        </div>
-      </div>
-    </section>
+          <!-- INDEPENDENT RESEARCH -->
+          <section id="research" class="mb-5 pb-4 border-bottom">
+            <h2 class="h3 fw-bold text-dark mb-3">Independent Research</h2>
+            <div class="card border p-4 bg-light rounded-3 mb-3">
+              <span class="badge bg-warning text-dark font-monospace d-inline-block w-auto mb-2 align-self-start">In
+                Progress — Preparing Journal Submission</span>
+              <h3 class="h5 fw-bold text-dark mb-2">Estimating ejection fraction directly from echocardiography video
+              </h3>
+              <p class="text-secondary small mb-3">
+                An end-to-end contrastive learning pipeline that estimates left ventricular ejection fraction (LVEF)
+                from raw ultrasound video, without hand-engineered intermediate measurements.
+              </p>
+              <div class="row g-2 font-monospace small">
+                <div class="col-sm-6"><strong>Dataset:</strong> EchoNet-Dynamic</div>
+                <div class="col-sm-6"><strong>Encoder:</strong> ResNet-18</div>
+                <div class="col-sm-6"><strong>Temporal Module:</strong> Multi-head self-attention</div>
+                <div class="col-sm-6"><strong>Objective:</strong> NT-Xent + triplet-margin loss</div>
+              </div>
+            </div>
+          </section>
 
-    <!-- RESEARCH -->
-    <section class="research" id="research">
-      <div class="wrap">
-        <div class="sheet-label"><span>INDEPENDENT RESEARCH</span><span>APR 2025 → PRESENT</span></div>
-        <div class="research-grid">
-          <div>
-            <span class="status">In progress — preparing journal submission</span>
-            <h2>Estimating ejection fraction directly from echocardiography video</h2>
-            <p>An end-to-end contrastive learning pipeline that estimates left ventricular ejection fraction (LVEF) from
-              raw ultrasound video, without hand-engineered intermediate measurements.</p>
-            <ul class="specs">
-              <li><span>Dataset</span><span>EchoNet-Dynamic</span></li>
-              <li><span>Encoder</span><span>ResNet-18</span></li>
-              <li><span>Temporal model</span><span>Multi-head self-attention across frames</span></li>
-              <li><span>Objective</span><span>Joint NT-Xent + triplet-margin contrastive loss</span></li>
-              <li><span>Status</span><span>Literature review and research report authored; finalizing results</span>
+          <!-- SELECTED PROJECTS -->
+          <section id="projects" class="mb-5 pb-4 border-bottom">
+            <h2 class="h3 fw-bold text-dark mb-4">Selected Projects</h2>
+
+            <div class="mb-4">
+              <h3 class="h6 fw-bold text-dark mb-1">1. Online Booking System (Booked.it Platform)</h3>
+              <p class="text-secondary small mb-1">Configured and customized high-scale booking flows and payment
+                gateways for European and UK clients in leisure, entertainment, and hospitality.</p>
+              <p class="font-monospace extra-small text-muted mb-0">Clients: Lane7 · The Brunch Club · Rollacity ·
+                Spinner · Dereham Strike Bowl · Ludlow Racecourse · PitchGolf Manchester</p>
+            </div>
+
+            <div class="mb-4">
+              <h3 class="h6 fw-bold text-dark mb-1">2. ePopInfo — Government Population Information Portal</h3>
+              <p class="text-secondary small mb-0">National population data portal built in Java and PostgreSQL
+                featuring dynamic demographic drill-down and census dataset REST query APIs.</p>
+            </div>
+
+            <div class="mb-4">
+              <h3 class="h6 fw-bold text-dark mb-1">3. Multi-Level Marketing (MLM) Platform</h3>
+              <p class="text-secondary small mb-0">European enterprise system built on CodeIgniter &amp; MySQL with
+                tree-sponsor algorithms, multi-currency payout gateways (Stripe/PayPal), and real-time GDPR analytics.
+              </p>
+            </div>
+
+            <div class="mb-2">
+              <h4 class="extra-small font-monospace text-uppercase text-muted mb-2">Additional Systems:</h4>
+              <div class="d-flex flex-wrap gap-2 font-monospace small">
+                <span class="badge bg-white text-dark border p-2">FRTC Sarlahi Forest Portal</span>
+                <span class="badge bg-white text-dark border p-2">BiTSi Inventory Solution</span>
+                <span class="badge bg-white text-dark border p-2">RPPM IMS System</span>
+                <span class="badge bg-white text-dark border p-2">LIC Nepal SMS Gateway</span>
+                <span class="badge bg-white text-dark border p-2">Sabha Nepal ERP</span>
+              </div>
+            </div>
+          </section>
+
+          <!-- TEACHING -->
+          <section id="teaching" class="mb-5 pb-4 border-bottom">
+            <h2 class="h3 fw-bold text-dark mb-3">Teaching</h2>
+            <ul class="list-unstyled font-monospace small">
+              <li class="mb-2 d-flex justify-content-between border-bottom pb-2">
+                <span><strong>Lecturer (Part-time)</strong> — St. Lawrence College, Kathmandu</span>
+                <span class="text-muted">Apr 2023 – Present</span>
+              </li>
+              <li class="mb-2 d-flex justify-content-between border-bottom pb-2">
+                <span><strong>Lecturer (Part-time)</strong> — Institute of Engineering, Thapathali</span>
+                <span class="text-muted">May 2023 – Oct 2023</span>
+              </li>
+              <li class="mb-2 d-flex justify-content-between border-bottom pb-2">
+                <span><strong>Lecturer (Part-time)</strong> — Janamaitri Multiple Campus, Kathmandu</span>
+                <span class="text-muted">Jul 2018 – Jan 2021</span>
               </li>
             </ul>
-          </div>
-          <div>
-            <svg class="echo-diagram" viewBox="0 0 460 340" fill="none" xmlns="http://www.w3.org/2000/svg" role="img"
-              aria-label="Diagram of the LVEF estimation pipeline: video frames feed a ResNet-18 encoder, an attention module over time, and a contrastive loss.">
-              <line class="grid-line" x1="0" y1="60" x2="460" y2="60" />
-              <line class="grid-line" x1="0" y1="150" x2="460" y2="150" />
-              <line class="grid-line" x1="0" y1="240" x2="460" y2="240" />
+          </section>
 
-              <!-- frame stack -->
-              <rect x="24" y="26" width="46" height="34" stroke="var(--line)" stroke-width="1.5" />
-              <rect x="34" y="36" width="46" height="34" stroke="var(--line)" stroke-width="1.5" opacity="0.7" />
-              <rect x="44" y="46" width="46" height="34" stroke="var(--line)" stroke-width="1.5" opacity="0.45" />
-              <text x="24" y="100" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace"
-                font-size="11">video frames</text>
+          <!-- TECH STACK -->
+          <section id="skills" class="mb-5 pb-4 border-bottom">
+            <h2 class="h3 fw-bold text-dark mb-3">Tech Stack &amp; Skills</h2>
+            <div class="row g-3 font-monospace small">
+              <div class="col-md-6">
+                <strong>Languages:</strong> Python, Java, PHP, JavaScript, SQL / T-SQL, LaTeX
+              </div>
+              <div class="col-md-6">
+                <strong>Machine Learning:</strong> PyTorch, TensorFlow, Scikit-learn, Pandas, NumPy, BeautifulSoup
+              </div>
+              <div class="col-md-6">
+                <strong>Web Frameworks:</strong> Django, Flask, FastAPI, Streamlit, CodeIgniter, REST APIs, Bootstrap
+              </div>
+              <div class="col-md-6">
+                <strong>Databases &amp; Tools:</strong> PostgreSQL, MySQL, SQL Server, Docker, Linux, Git
+              </div>
+            </div>
+          </section>
 
-              <!-- arrow -->
-              <path class="pulse" d="M110,55 L155,55" />
-              <path class="pulse" d="M148,49 L155,55 L148,61" />
+          <!-- EDUCATION & CERTS -->
+          <section id="education" class="mb-5 pb-4 border-bottom">
+            <h2 class="h3 fw-bold text-dark mb-3">Education &amp; Certificates</h2>
+            <ul class="list-unstyled mb-4">
+              <li class="mb-3">
+                <h3 class="h6 fw-bold text-dark mb-0">Master of Information System Engineering</h3>
+                <span class="font-monospace small text-muted">Gandaki College of Engineering and Science, Pokhara —
+                  2024</span>
+              </li>
+              <li class="mb-3">
+                <h3 class="h6 fw-bold text-dark mb-0">Bachelor of Computer Engineering</h3>
+                <span class="font-monospace small text-muted">Kathford Int'l College of Engineering and Management,
+                  Kathmandu — 2015</span>
+              </li>
+            </ul>
 
-              <!-- encoder box -->
-              <rect x="165" y="20" width="90" height="70" stroke="var(--teal)" stroke-width="1.5" class="node" />
-              <text x="178" y="60" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">ResNet-18</text>
-              <text x="178" y="76" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace"
-                font-size="10">encoder</text>
+            <h3 class="h6 font-monospace text-uppercase text-muted mb-2">Coursera &amp; DeepLearning.AI Certifications:
+            </h3>
+            <ul class="font-monospace small text-secondary ps-3">
+              <li><a href="https://coursera.org/share/984277cf610e78d4589ceb8808079af5" target="_blank"
+                  rel="noopener">Programming for Everybody (Getting Started with Python)</a> — Univ. of Michigan</li>
+              <li><a href="https://coursera.org/share/97b3f31d801f4fbe51eb7a5f4d8b6094" target="_blank"
+                  rel="noopener">Python Data Structures</a> — Univ. of Michigan</li>
+              <li><a href="https://coursera.org/share/b2470313d3c2de864e54874f6c7e21a3" target="_blank"
+                  rel="noopener">Using Python to Access Web Data</a> — Univ. of Michigan</li>
+              <li><a href="https://www.coursera.org/account/accomplishments/verify/EUN2SKZFGP8H" target="_blank"
+                  rel="noopener">Supervised Machine Learning: Regression &amp; Classification</a> — DeepLearning.AI</li>
+              <li><a href="https://coursera.org/share/854c5424a2b2562f42279df769a95a1a" target="_blank"
+                  rel="noopener">Neural Networks and Deep Learning</a> — DeepLearning.AI</li>
+              <li><a href="https://www.coursera.org/account/accomplishments/certificate/DBKYHHRF833J" target="_blank"
+                  rel="noopener">Introduction to TensorFlow for AI, ML, and Deep Learning</a> — DeepLearning.AI</li>
+            </ul>
+          </section>
 
-              <path class="pulse" d="M255,55 L300,55" />
-              <path class="pulse" d="M293,49 L300,55 L293,61" />
+          <!-- CONTACT -->
+          <section id="contact" class="mb-5">
+            <h2 class="h3 fw-bold text-dark mb-3">Contact</h2>
+            <p class="text-secondary small mb-4">Feel free to reach out for collaborations or project inquiries.</p>
 
-              <!-- attention box -->
-              <rect x="310" y="20" width="120" height="70" stroke="var(--amber)" stroke-width="1.5" class="node" />
-              <text x="322" y="52" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">Multi-head</text>
-              <text x="322" y="68" fill="#fff" font-family="IBM Plex Mono, monospace"
-                font-size="12">self-attention</text>
-              <text x="322" y="82" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace"
-                font-size="10">(temporal)</text>
+            <div class="row g-4">
+              <div class="col-lg-7">
+                <form id="contact-form" action="#" method="POST" class="p-3 border rounded bg-white">
+                  <div class="mb-3">
+                    <label for="contact-name" class="form-label font-monospace small">Name</label>
+                    <input type="text" class="form-control form-control-sm" id="contact-name" name="name" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="contact-email" class="form-label font-monospace small">Email</label>
+                    <input type="email" class="form-control form-control-sm" id="contact-email" name="email" required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="contact-subject" class="form-label font-monospace small">Subject</label>
+                    <input type="text" class="form-control form-control-sm" id="contact-subject" name="subject"
+                      required>
+                  </div>
+                  <div class="mb-3">
+                    <label for="contact-message" class="form-label font-monospace small">Message</label>
+                    <textarea class="form-control form-control-sm" id="contact-message" name="message" rows="4"
+                      required></textarea>
+                  </div>
+                  <button type="submit" class="btn btn-dark btn-sm font-monospace px-4">Send Message</button>
+                  <div id="form-status" class="form-status mt-2 small font-monospace"></div>
+                </form>
+              </div>
 
-              <path class="pulse" d="M370,90 L370,150" />
-              <path class="pulse" d="M364,143 L370,150 L376,143" />
+              <div class="col-lg-5">
+                <div class="border rounded overflow-hidden shadow-sm">
+                  <iframe title="Google Map showing Kathmandu, Nepal"
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625952077!2d85.2911132!3d27.7089603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c15651680d6!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1710000000000!5m2!1sen!2snp"
+                    width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy">
+                  </iframe>
+                </div>
+              </div>
+            </div>
+          </section>
 
-              <!-- ECG-style waveform representing the modeled cardiac cycle -->
-              <path class="pulse"
-                d="M40,195 L150,195 L165,155 L180,225 L192,175 L204,195 L250,195 L268,165 L286,195 L400,195 L420,155 L440,225" />
-              <text x="40" y="220" fill="var(--muted-on-ink)" font-family="IBM Plex Mono, monospace"
-                font-size="10">modeled cardiac cycle</text>
-
-              <path class="pulse" d="M240,240 L240,280" />
-              <path class="pulse" d="M234,273 L240,280 L246,273" />
-
-              <!-- loss box -->
-              <rect x="150" y="288" width="240" height="40" stroke="var(--line)" stroke-width="1.5" />
-              <text x="165" y="313" fill="#fff" font-family="IBM Plex Mono, monospace" font-size="12">NT-Xent +
-                triplet-margin loss</text>
-            </svg>
-          </div>
         </div>
-      </div>
-    </section>
-
-    <!-- SKILLS -->
-    <section class="sheet" id="skills">
-      <div class="wrap">
-        <div class="sheet-label"><span>STACK</span></div>
-        <div class="skills-grid">
-          <div class="skill-group">
-            <h3>Languages</h3>
-            <div class="skill-tags">
-              <span>Python</span><span>Java</span><span>PHP</span><span>JavaScript</span><span>SQL /
-                T-SQL</span><span>LaTeX</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Machine learning &amp; data</h3>
-            <div class="skill-tags">
-              <span>PyTorch</span><span>TensorFlow</span><span>Scikit-learn</span><span>Pandas</span><span>NumPy</span><span>Matplotlib</span><span>Seaborn</span><span>BeautifulSoup</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Web &amp; frameworks</h3>
-            <div class="skill-tags">
-              <span>Django</span><span>Flask</span><span>FastAPI</span><span>Streamlit</span><span>CodeIgniter</span><span>WordPress</span><span>REST
-                APIs</span><span>jQuery</span><span>AJAX</span><span>Bootstrap</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Databases</h3>
-            <div class="skill-tags">
-              <span>MySQL</span><span>SQL Server</span><span>T-SQL</span><span>Stored
-                procedures</span><span>PostgreSQL</span>
-            </div>
-          </div>
-          <div class="skill-group">
-            <h3>Infrastructure &amp; tools</h3>
-            <div class="skill-tags">
-              <span>Linux</span><span>Docker</span><span>Git</span><span>GitHub</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TEACHING -->
-    <section class="sheet" id="teaching">
-      <div class="wrap">
-        <div class="sheet-label"><span>TEACHING</span><span>2018 → PRESENT</span></div>
-        <ul class="teach-list">
-          <li class="teach-item">
-            <div>
-              <h4>Lecturer (Part-time)</h4>
-              <span class="inst">St. Lawrence College, Kathmandu</span>
-            </div>
-            <div class="dates">Apr 2023 — Present</div>
-          </li>
-          <li class="teach-item">
-            <div>
-              <h4>Lecturer (Part-time)</h4>
-              <span class="inst">Institute of Engineering, Thapathali</span>
-            </div>
-            <div class="dates">May 2023 — Oct 2023</div>
-          </li>
-          <li class="teach-item">
-            <div>
-              <h4>Lecturer (Part-time)</h4>
-              <span class="inst">Janamaitri Multiple Campus, Kathmandu</span>
-            </div>
-            <div class="dates">Jul 2018 — Jan 2021</div>
-          </li>
-        </ul>
-      </div>
-    </section>
-
-    <!-- EDUCATION & CERTS -->
-    <section class="sheet" id="education">
-      <div class="wrap">
-        <div class="sheet-label"><span>EDUCATION &amp; CERTIFICATES</span></div>
-        <div class="ed-grid">
-          <div>
-            <div class="ed-item">
-              <h4>Master of Information System Engineering</h4>
-              <span class="inst">Gandaki College of Engineering and Science, Pokhara — 2024</span>
-            </div>
-            <div class="ed-item">
-              <h4>Bachelor of Computer Engineering</h4>
-              <span class="inst">Kathford Int'l College of Engineering and Management, Kathmandu — 2015</span>
-            </div>
-          </div>
-          <ul class="cert-list">
-            <li><a href="https://coursera.org/share/984277cf610e78d4589ceb8808079af5" target="_blank" rel="noopener">Programming for Everybody (Getting
-                Started with Python)</a><span class="issuer">University of Michigan —
-                Coursera</span></li>
-            <li><a href="https://coursera.org/share/97b3f31d801f4fbe51eb7a5f4d8b6094" target="_blank" rel="noopener">Python Data Structures</a><span
-                class="issuer">University of Michigan — Coursera</span></li>
-            <li><a href="https://coursera.org/share/b2470313d3c2de864e54874f6c7e21a3" target="_blank" rel="noopener">Using Python to Access Web
-                Data</a><span class="issuer">University of Michigan — Coursera</span></li>
-            <li><a href="https://www.coursera.org/account/accomplishments/verify/EUN2SKZFGP8H" target="_blank" rel="noopener">Supervised Machine
-                Learning: Regression and Classification</a><span class="issuer">DeepLearning.AI —
-                Coursera</span></li>
-            <li><a href="https://coursera.org/share/854c5424a2b2562f42279df769a95a1a" target="_blank" rel="noopener">Neural Networks and Deep
-                Learning</a><span class="issuer">DeepLearning.AI — Coursera</span></li>
-            <li><a href="https://www.coursera.org/account/accomplishments/certificate/DBKYHHRF833J" target="_blank" rel="noopener">Introduction to
-                TensorFlow for AI, ML, and Deep Learning</a><span class="issuer">DeepLearning.AI —
-                Coursera</span></li>
-          </ul>
-        </div>
-      </div>
-    </section>
-
-    <!-- CONTACT -->
-    <section class="sheet contact" id="contact">
-      <div class="wrap">
-        <div class="sheet-label"><span>CONTACT</span></div>
-        <h2>Working on something that needs both a model and a production system behind it?</h2>
-        <p>Send a message or reach out — open to remote roles and collaborations across ML engineering and full-stack development.</p>
-        <div class="contact-grid">
-          <form id="contact-form" class="contact-form" action="#" method="POST">
-            <div class="form-group">
-              <label for="contact-name">Name</label>
-              <input type="text" id="contact-name" name="name" placeholder="Your name" required>
-            </div>
-            <div class="form-group">
-              <label for="contact-email">Email</label>
-              <input type="email" id="contact-email" name="email" placeholder="your.email@example.com" required>
-            </div>
-            <div class="form-group">
-              <label for="contact-subject">Subject</label>
-              <input type="text" id="contact-subject" name="subject" placeholder="Project inquiry / Hello" required>
-            </div>
-            <div class="form-group">
-              <label for="contact-message">Message</label>
-              <textarea id="contact-message" name="message" rows="5" placeholder="Write your message here..." required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <div id="form-status" class="form-status" aria-live="polite"></div>
-          </form>
-
-          <div class="contact-map-wrap">
-            <div class="map-frame">
-              <iframe
-                title="Google Map showing Kathmandu, Nepal"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625952077!2d85.2911132!3d27.7089603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c15651680d6!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1710000000000!5m2!1sen!2snp"
-                width="100%"
-                height="310"
-                style="border:0;"
-                allowfullscreen=""
-                loading="lazy"
-                referrerpolicy="no-referrer-when-downgrade">
-              </iframe>
-            </div>
-            <div class="contact-meta-footer">
-              <a class="btn btn-ghost" href="Riddi_Kumar_Shrestha_Resume.pdf" download>Download full resume ↓</a>
-              <!-- <p class="reference-note">Location: Kathmandu, Nepal<br>Reference — Dr. Badri Adhikari (contact details available on request)</p> -->
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap footer-inner">
-      <span>© 2026 Riddi Kumar Shrestha</span>
-      <div class="footer-socials">
-        <a href="https://linkedin.com/in/riddhikshrestha" target="_blank" rel="noopener" aria-label="LinkedIn">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.74a1.6 1.6 0 1 0 0 3.2 1.6 1.6 0 0 0 0-3.2Z" />
-          </svg>
-          <span>LinkedIn</span>
-        </a>
-        <a href="https://github.com/riddhikshrestha" target="_blank" rel="noopener" aria-label="GitHub">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2Z" />
-          </svg>
-          <span>GitHub</span>
-        </a>
-        <a href="https://facebook.com/riddhikshrestha" target="_blank" rel="noopener" aria-label="Facebook">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H7.5v-3H10V9.5C10 7.01 11.49 5.6 13.78 5.6c1.1 0 2.25.2 2.25.2v2.47h-1.27c-1.23 0-1.61.77-1.61 1.56V12h2.78l-.45 3h-2.33v6.8c4.56-.93 8-4.96 8-9.8Z" />
-          </svg>
-          <span>Facebook</span>
-        </a>
-        <a href="https://youtube.com/@riddhikshrestha" target="_blank" rel="noopener" aria-label="YouTube">
-          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
-          </svg>
-          <span>YouTube</span>
-        </a>
       </div>
     </div>
+  </main>
+
+  <footer class="py-4 border-top bg-light font-monospace small text-center text-secondary">
+    <div class="container">
+      © 2026 Riddi Kumar Shrestha · Kathmandu, Nepal
+    </div>
   </footer>
+
+  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="script.js"></script>
 </body>
 
