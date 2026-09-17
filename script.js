@@ -168,7 +168,7 @@
     };
 
     // Use EmailJS if keys are configured
-    if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+    if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'fqG6NfrLG9644WIwd') {
       emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
         .then(function () {
           status.className = 'form-status success small font-monospace mt-2';
