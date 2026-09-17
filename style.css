@@ -1,41 +1,43 @@
 :root {
-  --font-body: ".SFNSText-Regular", "San Francisco", Roboto, "Segoe UI", "Helvetica Neue", "Lucida Grande", Arial, sans-serif;
-  --text-primary: #222222;
-  --text-secondary: #555555;
-  --link-color: #0366d6;
-  --border-color: #EAEAEA;
-}
-
-*, *::before, *::after {
-  font-family: var(--font-body) !important;
+  --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'JetBrains Mono', SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --text-primary: #111827;
+  --text-secondary: #4b5563;
+  --link-color: #2563eb;
+  --link-hover: #1d4ed8;
+  --border-color: #e5e7eb;
 }
 
 body {
-  font-family: var(--font-body) !important;
+  font-family: var(--font-body);
   color: var(--text-primary);
-  background-color: #FFFFFF;
-  line-height: 1.6;
+  background-color: #ffffff;
+  line-height: 1.65;
   font-size: 15.5px;
   -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 /* Header Navbar */
 header.site-header {
   border-bottom: 1px solid var(--border-color) !important;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.02);
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.03);
   z-index: 1040;
+  backdrop-filter: blur(8px);
+  background-color: rgba(255, 255, 255, 0.95) !important;
 }
 
 .site-header .nav-link {
-  color: #555555 !important;
+  color: var(--text-secondary) !important;
   font-weight: 500;
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, font-weight 0.15s ease;
   padding: 8px 12px !important;
 }
 
 .site-header .nav-link:hover,
 .site-header .nav-link.active {
-  color: #111111 !important;
+  color: var(--text-primary) !important;
   font-weight: 600;
 }
 
@@ -51,33 +53,53 @@ header.site-header {
   aspect-ratio: 1 / 1;
   object-fit: cover;
   object-position: center 15%;
-  border: 3px solid #FFFFFF;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  border: 3px solid #ffffff;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-avatar:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, 0.12);
 }
 
 .sidebar-links li {
-  line-height: 1.4;
+  line-height: 1.5;
 }
 
 .sidebar-links a {
   color: var(--link-color);
-  transition: color 0.15s ease;
+  transition: color 0.15s ease, text-decoration 0.15s ease;
 }
 
 .sidebar-links a:hover {
   text-decoration: underline !important;
-  color: #004499;
+  color: var(--link-hover);
 }
 
-/* Main Content Typography */
+/* Typography Aesthetics */
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-body) !important;
+  font-family: var(--font-heading);
   color: var(--text-primary);
+  letter-spacing: -0.02em;
+  font-weight: 700;
+}
+
+h1 {
+  letter-spacing: -0.03em;
+}
+
+h2 {
+  letter-spacing: -0.025em;
+}
+
+.font-monospace, code, kbd, samp, pre {
+  font-family: var(--font-mono) !important;
   letter-spacing: -0.01em;
 }
 
 .leading-tight {
-  line-height: 1.35;
+  line-height: 1.4;
 }
 
 .extra-small {
@@ -86,14 +108,22 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   color: var(--link-color);
+  text-decoration: none;
 }
 
 a:hover {
-  color: #004499;
+  color: var(--link-hover);
 }
 
 .focus-list h4 {
-  font-size: 15.5px;
+  font-size: 16px;
+}
+
+/* Badges & Accents */
+.badge {
+  font-family: var(--font-mono);
+  font-weight: 500;
+  letter-spacing: -0.01em;
 }
 
 /* Form Status */
@@ -113,7 +143,7 @@ a:hover {
   }
 
   .site-header .navbar-collapse {
-    background: #FFFFFF;
+    background: #ffffff;
     border-top: 1px solid var(--border-color);
     padding: 12px 16px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
@@ -122,7 +152,7 @@ a:hover {
 
   .site-header .nav-link {
     padding: 10px 0 !important;
-    border-bottom: 1px solid #F0F0F0;
+    border-bottom: 1px solid #f0f0f0;
   }
 
   .profile-avatar {
