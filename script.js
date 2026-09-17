@@ -109,12 +109,12 @@
 (function () {
   // EmailJS Configuration Constants
   // Replace these placeholders with your actual keys from https://dashboard.emailjs.com/
-  var EMAILJS_PUBLIC_KEY = 'YOUR_PUBLIC_KEY';    // Your EmailJS Public Key (e.g. 'user_xxxx')
-  var EMAILJS_SERVICE_ID = 'YOUR_SERVICE_ID';    // Your EmailJS Service ID (e.g. 'service_xxxx')
-  var EMAILJS_TEMPLATE_ID = 'YOUR_TEMPLATE_ID';  // Your EmailJS Template ID (e.g. 'template_xxxx')
+  var EMAILJS_PUBLIC_KEY = 'fqG6NfrLG9644WIwd';    // Your EmailJS Public Key (e.g. 'user_xxxx')
+  var EMAILJS_SERVICE_ID = 'service_cpai3x4';    // Your EmailJS Service ID (e.g. 'service_xxxx')
+  var EMAILJS_TEMPLATE_ID = 'template_b5miq05';  // Your EmailJS Template ID (e.g. 'template_xxxx')
 
   // Initialize EmailJS SDK if public key is configured
-  if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+  if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'fqG6NfrLG9644WIwd') {
     emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
   }
 
@@ -182,29 +182,29 @@
           _subject: 'New Contact Inquiry: ' + subjectVal
         })
       })
-      .then(function (res) {
-        if (res.ok) {
+        .then(function (res) {
+          if (res.ok) {
+            status.className = 'form-status success small font-monospace mt-2';
+            status.textContent = '✓ Thank you! Your message has been sent to riddhikshrestha@gmail.com.';
+            form.reset();
+          } else {
+            throw new Error('Fallback failed');
+          }
+        })
+        .catch(function () {
+          var mailtoUrl = 'mailto:riddhikshrestha@gmail.com?subject=' +
+            encodeURIComponent(subjectVal) +
+            '&body=' + encodeURIComponent('From: ' + nameVal + ' (' + emailVal + ')\n\n' + messageVal);
+          window.location.href = mailtoUrl;
           status.className = 'form-status success small font-monospace mt-2';
-          status.textContent = '✓ Thank you! Your message has been sent to riddhikshrestha@gmail.com.';
-          form.reset();
-        } else {
-          throw new Error('Fallback failed');
-        }
-      })
-      .catch(function () {
-        var mailtoUrl = 'mailto:riddhikshrestha@gmail.com?subject=' +
-          encodeURIComponent(subjectVal) +
-          '&body=' + encodeURIComponent('From: ' + nameVal + ' (' + emailVal + ')\n\n' + messageVal);
-        window.location.href = mailtoUrl;
-        status.className = 'form-status success small font-monospace mt-2';
-        status.textContent = 'Opening your email client...';
-      })
-      .finally(function () {
-        if (submitBtn) {
-          submitBtn.disabled = false;
-          submitBtn.innerHTML = '<span>Send Message</span> <i class="bi bi-send-fill small"></i>';
-        }
-      });
+          status.textContent = 'Opening your email client...';
+        })
+        .finally(function () {
+          if (submitBtn) {
+            submitBtn.disabled = false;
+            submitBtn.innerHTML = '<span>Send Message</span> <i class="bi bi-send-fill small"></i>';
+          }
+        });
     }
   });
 })();
