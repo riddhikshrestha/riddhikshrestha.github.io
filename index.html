@@ -5,7 +5,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Riddi Kumar Shrestha — Software Engineer & ML Researcher</title>
-  
+
   <!-- Favicon using Profile.jpg -->
   <link rel="icon" type="image/jpeg" href="Profile.jpg">
   <link rel="shortcut icon" type="image/jpeg" href="Profile.jpg">
@@ -25,15 +25,77 @@
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://riddhikshrestha.github.io/">
   <meta property="og:title" content="Riddi Kumar Shrestha — Software Engineer & ML Researcher">
-  <meta property="og:description" content="Portfolio of Riddi Kumar Shrestha, Software Engineer & ML Researcher based in Kathmandu, Nepal.">
+  <meta property="og:description"
+    content="Portfolio of Riddi Kumar Shrestha, Software Engineer & ML Researcher based in Kathmandu, Nepal.">
   <meta property="og:image" content="Profile.jpg">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
   <meta property="twitter:url" content="https://riddhikshrestha.github.io/">
   <meta property="twitter:title" content="Riddi Kumar Shrestha — Software Engineer & ML Researcher">
-  <meta property="twitter:description" content="Portfolio of Riddi Kumar Shrestha, Software Engineer & ML Researcher based in Kathmandu, Nepal.">
+  <meta property="twitter:description"
+    content="Portfolio of Riddi Kumar Shrestha, Software Engineer & ML Researcher based in Kathmandu, Nepal.">
   <meta property="twitter:image" content="Profile.jpg">
+
+  <!-- Schema.org JSON-LD Structured Data for Google Search -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Person",
+        "@id": "https://riddhikshrestha.github.io/#person",
+        "name": "Riddi Kumar Shrestha",
+        "alternateName": [
+          "Riddhi Kumar Shrestha",
+          "Riddhi Shrestha",
+          "Riddi Shrestha",
+          "Riddhik Shrestha",
+          "Riddhi k Shrestha"
+        ],
+        "jobTitle": "Software Engineer & ML Researcher",
+        "worksFor": {
+          "@type": "Organization",
+          "name": "Nepit Solutions Pvt. Ltd."
+        },
+        "alumniOf": [
+          {
+            "@type": "EducationalOrganization",
+            "name": "Gandaki College of Engineering and Science"
+          },
+          {
+            "@type": "EducationalOrganization",
+            "name": "Kathford Int'l College of Engineering and Management"
+          }
+        ],
+        "url": "https://riddhikshrestha.github.io/",
+        "image": "https://riddhikshrestha.github.io/Profile.jpg",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "Kathmandu",
+          "addressCountry": "Nepal"
+        },
+        "sameAs": [
+          "https://github.com/riddhikshrestha",
+          "https://linkedin.com/in/riddhikshrestha",
+          "https://youtube.com/@riddhikshrestha",
+          "https://facebook.com/riddhikshrestha",
+          "https://medium.com/@riddhikshrestha"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "https://riddhikshrestha.github.io/#website",
+        "url": "https://riddhikshrestha.github.io/",
+        "name": "Riddi Kumar Shrestha Portfolio",
+        "description": "Official Portfolio of Riddi Kumar Shrestha (Riddhi Kumar Shrestha), Software Engineer & ML Researcher based in Kathmandu, Nepal.",
+        "publisher": {
+          "@id": "https://riddhikshrestha.github.io/#person"
+        }
+      }
+    ]
+  }
+  </script>
 
   <!-- Premium Typography: Plus Jakarta Sans & JetBrains Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -375,18 +437,21 @@
 
             <div class="row g-4">
               <div class="col-lg-7">
-                <form id="contact-form" action="https://formsubmit.co/riddhikshrestha@gmail.com" method="POST" class="p-3 border rounded bg-white">
+                <form id="contact-form" action="https://formsubmit.co/riddhikshrestha@gmail.com" method="POST"
+                  class="p-3 border rounded bg-white">
                   <input type="hidden" name="_subject" value="Portfolio Contact Inquiry - riddikshrestha.com.np">
                   <input type="hidden" name="_template" value="table">
                   <input type="hidden" name="_captcha" value="false">
 
                   <div class="mb-3">
                     <label for="contact-name" class="form-label font-monospace small">Name</label>
-                    <input type="text" class="form-control form-control-sm" id="contact-name" name="name" placeholder="Your Name" required>
+                    <input type="text" class="form-control form-control-sm" id="contact-name" name="name"
+                      placeholder="Your Name" required>
                   </div>
                   <div class="mb-3">
                     <label for="contact-email" class="form-label font-monospace small">Email</label>
-                    <input type="email" class="form-control form-control-sm" id="contact-email" name="email" placeholder="name@example.com" required>
+                    <input type="email" class="form-control form-control-sm" id="contact-email" name="email"
+                      placeholder="name@example.com" required>
                   </div>
                   <div class="mb-3">
                     <label for="contact-subject" class="form-label font-monospace small">Subject</label>
@@ -398,7 +463,8 @@
                     <textarea class="form-control form-control-sm" id="contact-message" name="message" rows="4"
                       placeholder="Write your message here..." required></textarea>
                   </div>
-                  <button type="submit" id="contact-submit-btn" class="btn btn-dark btn-sm font-monospace px-4 d-inline-flex align-items-center gap-2">
+                  <button type="submit" id="contact-submit-btn"
+                    class="btn btn-dark btn-sm font-monospace px-4 d-inline-flex align-items-center gap-2">
                     <span>Send Message</span>
                     <i class="bi bi-send-fill small"></i>
                   </button>
