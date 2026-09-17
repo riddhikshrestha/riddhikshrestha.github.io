@@ -52,7 +52,7 @@
   <!-- TOP MINIMALIST HEADER NAVBAR -->
   <header class="navbar navbar-expand-md sticky-top site-header border-bottom bg-white">
     <div class="container">
-      <a class="navbar-brand fw-bold text-dark font-monospace fs-5" href="#top">
+      <a class="navbar-brand fw-bold text-dark font-monospace fs-5" href="/">
         riddikshrestha.com.np
       </a>
       <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
@@ -62,14 +62,14 @@
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="portfolioNav">
         <ul class="navbar-nav mb-2 mb-md-0 gap-md-3 font-monospace small">
-          <li class="nav-item"><a class="nav-link text-secondary" href="#about">About</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="#experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="#research">Research</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="#projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="#teaching">Teaching</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="#skills">Stack</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="#education">Education</a></li>
-          <li class="nav-item"><a class="nav-link text-secondary" href="#contact">Contact</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="about">About</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="experience">Experience</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="research">Research</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="teaching">Teaching</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="skills">Stack</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="education">Education</a></li>
+          <li class="nav-item"><a class="nav-link text-secondary" href="contact">Contact</a></li>
         </ul>
       </div>
     </div>
@@ -108,11 +108,11 @@
               </li>
               <li class="mb-2 d-flex align-items-center gap-2">
                 <i class="bi bi-envelope-fill text-secondary fs-6"></i>
-                <a href="#contact" class="text-primary text-decoration-none">Email / Contact</a>
+                <a href="contact" class="text-primary text-decoration-none">Email / Contact</a>
               </li>
               <li class="mb-2 d-flex align-items-center gap-2">
                 <i class="bi bi-journal-medical text-success fs-6"></i>
-                <a href="#research" class="text-primary text-decoration-none">EchoNet Research</a>
+                <a href="research" class="text-primary text-decoration-none">EchoNet Research</a>
               </li>
               <li class="mb-2 d-flex align-items-center gap-2">
                 <i class="bi bi-github text-dark fs-6"></i>
@@ -375,26 +375,33 @@
 
             <div class="row g-4">
               <div class="col-lg-7">
-                <form id="contact-form" action="#" method="POST" class="p-3 border rounded bg-white">
+                <form id="contact-form" action="https://formsubmit.co/riddhikshrestha@gmail.com" method="POST" class="p-3 border rounded bg-white">
+                  <input type="hidden" name="_subject" value="Portfolio Contact Inquiry - riddikshrestha.com.np">
+                  <input type="hidden" name="_template" value="table">
+                  <input type="hidden" name="_captcha" value="false">
+
                   <div class="mb-3">
                     <label for="contact-name" class="form-label font-monospace small">Name</label>
-                    <input type="text" class="form-control form-control-sm" id="contact-name" name="name" required>
+                    <input type="text" class="form-control form-control-sm" id="contact-name" name="name" placeholder="Your Name" required>
                   </div>
                   <div class="mb-3">
                     <label for="contact-email" class="form-label font-monospace small">Email</label>
-                    <input type="email" class="form-control form-control-sm" id="contact-email" name="email" required>
+                    <input type="email" class="form-control form-control-sm" id="contact-email" name="email" placeholder="name@example.com" required>
                   </div>
                   <div class="mb-3">
                     <label for="contact-subject" class="form-label font-monospace small">Subject</label>
                     <input type="text" class="form-control form-control-sm" id="contact-subject" name="subject"
-                      required>
+                      placeholder="Project Inquiry / Opportunity" required>
                   </div>
                   <div class="mb-3">
                     <label for="contact-message" class="form-label font-monospace small">Message</label>
                     <textarea class="form-control form-control-sm" id="contact-message" name="message" rows="4"
-                      required></textarea>
+                      placeholder="Write your message here..." required></textarea>
                   </div>
-                  <button type="submit" class="btn btn-dark btn-sm font-monospace px-4">Send Message</button>
+                  <button type="submit" id="contact-submit-btn" class="btn btn-dark btn-sm font-monospace px-4 d-inline-flex align-items-center gap-2">
+                    <span>Send Message</span>
+                    <i class="bi bi-send-fill small"></i>
+                  </button>
                   <div id="form-status" class="form-status mt-2 small font-monospace"></div>
                 </form>
               </div>
@@ -421,8 +428,9 @@
     </div>
   </footer>
 
-  <!-- Bootstrap 5.3.3 JS Bundle -->
+  <!-- Bootstrap 5.3.3 JS Bundle & EmailJS SDK -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
   <script src="script.js"></script>
 </body>
 
