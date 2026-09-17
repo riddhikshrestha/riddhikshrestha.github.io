@@ -125,15 +125,17 @@
 
 // Contact Form Handler with EmailJS Delivery to riddhikshrestha@gmail.com
 (function () {
-  // EmailJS Configuration Constants
-  // Replace these placeholders with your actual keys from https://dashboard.emailjs.com/
-  var EMAILJS_PUBLIC_KEY = 'fqG6NfrLG9644WIwd';    // Your EmailJS Public Key (e.g. 'user_xxxx')
-  var EMAILJS_SERVICE_ID = 'service_cpai3x4';    // Your EmailJS Service ID (e.g. 'service_xxxx')
-  var EMAILJS_TEMPLATE_ID = 'template_b5miq05';  // Your EmailJS Template ID (e.g. 'template_xxxx')
+  var EMAILJS_PUBLIC_KEY = 'fqG6NfrLG9644WIwd';
+  var EMAILJS_SERVICE_ID = 'service_cpai3x4';
+  var EMAILJS_TEMPLATE_ID = 'template_b5miq05';
 
-  // Initialize EmailJS SDK if public key is configured
-  if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'fqG6NfrLG9644WIwd') {
-    emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+  // Initialize EmailJS SDK
+  if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+    try {
+      emailjs.init({ publicKey: EMAILJS_PUBLIC_KEY });
+    } catch (e) {
+      console.error('EmailJS init error:', e);
+    }
   }
 
   var form = document.getElementById('contact-form');
@@ -151,7 +153,7 @@
     }
 
     status.className = 'form-status text-primary small font-monospace mt-2';
-    status.textContent = 'Sending message...';
+    status.textContent = 'Sending message via EmailJS...';
 
     var nameVal = form.elements['name'].value;
     var emailVal = form.elements['email'].value;
@@ -164,21 +166,24 @@
       reply_to: emailVal,
       to_email: 'riddhikshrestha@gmail.com',
       subject: subjectVal,
-      message: messageVal
+      message: messageVal,
+      name: nameVal,
+      email: emailVal
     };
 
-    // Use EmailJS if keys are configured
-    if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'fqG6NfrLG9644WIwd') {
-      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams)
-        .then(function () {
+    if (typeof emailjs !== 'undefined' && EMAILJS_PUBLIC_KEY && EMAILJS_PUBLIC_KEY !== 'YOUR_PUBLIC_KEY') {
+      emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, templateParams, EMAILJS_PUBLIC_KEY)
+        .then(function (response) {
+          console.log('EmailJS Success:', response.status, response.text);
           status.className = 'form-status success small font-monospace mt-2';
           status.textContent = '✓ Thank you! Your message has been sent to riddhikshrestha@gmail.com via EmailJS.';
           form.reset();
         })
         .catch(function (error) {
           console.error('EmailJS Error:', error);
+          var errMsg = error && (error.text || error.message) ? (error.text || error.message) : 'Please check EmailJS template variables';
           status.className = 'form-status text-danger small font-monospace mt-2';
-          status.textContent = '✕ EmailJS Error: Please verify your Service ID, Template ID, and Public Key.';
+          status.textContent = '✕ EmailJS Error: ' + errMsg;
         })
         .finally(function () {
           if (submitBtn) {
@@ -187,7 +192,7 @@
           }
         });
     } else {
-      // Live AJAX Fallback to ensure instant delivery until EmailJS keys are pasted in
+      // Fallback
       fetch('https://formsubmit.co/ajax/riddhikshrestha@gmail.com', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
