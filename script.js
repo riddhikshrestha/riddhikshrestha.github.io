@@ -122,7 +122,7 @@
     }
   });
 })();
-
+/*
 (function () {
   // Initialize with your Public Key
   emailjs.init("fqG6NfrLG9644WIwd");
@@ -141,7 +141,7 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
       alert('Failed to send email.');
     });
 });
-
+*/
 // Contact Form Handler with EmailJS Delivery to riddhikshrestha@gmail.com
 // (function () {
 //   var EMAILJS_PUBLIC_KEY = 'fqG6NfrLG9644WIwd';
