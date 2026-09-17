@@ -94,8 +94,26 @@
 
   sections.forEach(function (s) { observer.observe(s); });
 
-  // Handle initial page load with clean path or hash
+  // Handle initial page load with clean path, 404 session redirect, or hash
   document.addEventListener('DOMContentLoaded', function () {
+    var redirectedUrl = sessionStorage.getItem('spa_redirect');
+    if (redirectedUrl) {
+      sessionStorage.removeItem('spa_redirect');
+      try {
+        var parsed = new URL(redirectedUrl);
+        var cleanPath = parsed.pathname.replace(/^\//, '') || parsed.hash.replace(/^#\/?/, '');
+        if (cleanPath && document.getElementById(cleanPath)) {
+          history.replaceState({ section: cleanPath }, '', '/' + cleanPath);
+          setTimeout(function () {
+            scrollToSection(cleanPath, false);
+          }, 100);
+          return;
+        }
+      } catch (err) {
+        console.error(err);
+      }
+    }
+
     var path = window.location.pathname.replace(/^\//, '') || window.location.hash.replace(/^#\/?/, '');
     if (path && document.getElementById(path)) {
       setTimeout(function () {
