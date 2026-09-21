@@ -191,8 +191,19 @@ a:hover {
     font-size: 16px !important;
   }
 
-  body, p, li, h1, h2, h3, h4, h5, h6, a, span {
+  body, p, li, h1, h2, h3, h4, h5, h6, a {
     overflow-wrap: break-word;
     word-break: break-word;
+  }
+}
+
+/* Footer Responsive Styles */
+.site-footer {
+  font-size: 0.85rem;
+}
+
+@media (max-width: 575.98px) {
+  .site-footer {
+    font-size: 0.78rem;
   }
 }
