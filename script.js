@@ -123,54 +123,53 @@
   });
 })();
 
-// Footer Unique Visitor Counter & Last Updated Date Logic
+// Footer Dynamic Last Updated Date & Visitor Counter Logic
 (function () {
-  document.addEventListener('DOMContentLoaded', function () {
-    function formatDDMMYYYY(dateObj) {
-      var d = String(dateObj.getDate()).padStart(2, '0');
-      var m = String(dateObj.getMonth() + 1).padStart(2, '0');
-      var y = dateObj.getFullYear();
-      return d + '-' + m + '-' + y;
-    }
+  function formatDDMMYYYY(dateObj) {
+    var d = String(dateObj.getDate()).padStart(2, '0');
+    var m = String(dateObj.getMonth() + 1).padStart(2, '0');
+    var y = dateObj.getFullYear();
+    return d + '-' + m + '-' + y;
+  }
 
-    // 1. Fetch & Display Last Updated Date from GitHub API
+  function initFooterData() {
+    // 1. Dynamic Fetch of Last Updated Date from GitHub REST API
     var lastUpdatedEl = document.getElementById('last-updated-date');
     if (lastUpdatedEl) {
       fetch('https://api.github.com/repos/riddhikshrestha/riddhikshrestha.github.io/commits?per_page=1')
         .then(function (res) {
-          if (!res.ok) throw new Error('GitHub API response not OK');
+          if (!res.ok) throw new Error('GitHub API returned status ' + res.status);
           return res.json();
         })
         .then(function (data) {
-          if (data && data[0] && data[0].commit && data[0].commit.committer && data[0].commit.committer.date) {
-            var commitDate = new Date(data[0].commit.committer.date);
+          var dateStr = (data && data[0] && data[0].commit && data[0].commit.committer && data[0].commit.committer.date) ||
+                         (data && data.commit && data.commit.committer && data.commit.committer.date);
+          if (dateStr) {
+            var commitDate = new Date(dateStr);
             lastUpdatedEl.textContent = formatDDMMYYYY(commitDate);
           } else {
-            throw new Error('Invalid commit payload');
+            throw new Error('Invalid commit date payload');
           }
         })
         .catch(function (err) {
-          console.warn('Could not fetch GitHub commit date, using fallback:', err);
+          console.warn('GitHub API fetch failed, using document.lastModified:', err);
           var fallbackDate = new Date(document.lastModified);
           if (!isNaN(fallbackDate.getTime())) {
             lastUpdatedEl.textContent = formatDDMMYYYY(fallbackDate);
-          } else {
-            lastUpdatedEl.textContent = '17-09-2026';
           }
         });
     }
 
-    // 2. Fetch & Display Unique Visitor Count
+    // 2. Fetch & Display Unique Visitor Count if element exists
     var visitorCountEl = document.getElementById('visitor-count');
     if (visitorCountEl) {
       var hasVisited = localStorage.getItem('riddhik_portfolio_visited');
       var cachedCount = localStorage.getItem('riddhik_portfolio_count');
 
       if (!hasVisited) {
-        // Unique new visitor -> Increment counter via CounterAPI
         fetch('https://counterapi.com/api/v1/counter?key=riddhikshrestha_portfolio_unique_visitors')
           .then(function (res) {
-            if (!res.ok) throw new Error('Counter API response not OK');
+            if (!res.ok) throw new Error('Counter API error');
             return res.json();
           })
           .then(function (data) {
@@ -179,23 +178,26 @@
               visitorCountEl.textContent = Number(count).toLocaleString();
               localStorage.setItem('riddhik_portfolio_visited', 'true');
               localStorage.setItem('riddhik_portfolio_count', count);
-            } else {
-              throw new Error('Invalid counter payload');
             }
           })
           .catch(function (err) {
-            console.warn('Counter API error, using fallback:', err);
-            var fallback = cachedCount ? Number(cachedCount) : 1;
-            visitorCountEl.textContent = fallback.toLocaleString();
+            console.warn('Counter API error:', err);
+            if (cachedCount) visitorCountEl.textContent = Number(cachedCount).toLocaleString();
           });
-      } else {
-        // Returning visitor -> Display cached count
-        var count = cachedCount ? Number(cachedCount) : 1;
-        visitorCountEl.textContent = count.toLocaleString();
+      } else if (cachedCount) {
+        visitorCountEl.textContent = Number(cachedCount).toLocaleString();
       }
     }
-  });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initFooterData);
+  } else {
+    initFooterData();
+  }
 })();
+
+
 
 (function () {
   // Initialize with your Public Key
