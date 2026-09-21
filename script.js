@@ -122,7 +122,81 @@
     }
   });
 })();
-/*
+
+// Footer Unique Visitor Counter & Last Updated Date Logic
+(function () {
+  document.addEventListener('DOMContentLoaded', function () {
+    function formatDDMMYYYY(dateObj) {
+      var d = String(dateObj.getDate()).padStart(2, '0');
+      var m = String(dateObj.getMonth() + 1).padStart(2, '0');
+      var y = dateObj.getFullYear();
+      return d + '-' + m + '-' + y;
+    }
+
+    // 1. Fetch & Display Last Updated Date from GitHub API
+    var lastUpdatedEl = document.getElementById('last-updated-date');
+    if (lastUpdatedEl) {
+      fetch('https://api.github.com/repos/riddhikshrestha/riddhikshrestha.github.io/commits?per_page=1')
+        .then(function (res) {
+          if (!res.ok) throw new Error('GitHub API response not OK');
+          return res.json();
+        })
+        .then(function (data) {
+          if (data && data[0] && data[0].commit && data[0].commit.committer && data[0].commit.committer.date) {
+            var commitDate = new Date(data[0].commit.committer.date);
+            lastUpdatedEl.textContent = formatDDMMYYYY(commitDate);
+          } else {
+            throw new Error('Invalid commit payload');
+          }
+        })
+        .catch(function (err) {
+          console.warn('Could not fetch GitHub commit date, using fallback:', err);
+          var fallbackDate = new Date(document.lastModified);
+          if (!isNaN(fallbackDate.getTime())) {
+            lastUpdatedEl.textContent = formatDDMMYYYY(fallbackDate);
+          } else {
+            lastUpdatedEl.textContent = '17-09-2026';
+          }
+        });
+    }
+
+    // 2. Fetch & Display Unique Visitor Count
+    var visitorCountEl = document.getElementById('visitor-count');
+    if (visitorCountEl) {
+      var hasVisited = localStorage.getItem('riddhik_portfolio_visited');
+      var cachedCount = localStorage.getItem('riddhik_portfolio_count');
+
+      if (!hasVisited) {
+        // Unique new visitor -> Increment counter via CounterAPI
+        fetch('https://counterapi.com/api/v1/counter?key=riddhikshrestha_portfolio_unique_visitors')
+          .then(function (res) {
+            if (!res.ok) throw new Error('Counter API response not OK');
+            return res.json();
+          })
+          .then(function (data) {
+            var count = data && (data.value || data.count);
+            if (count) {
+              visitorCountEl.textContent = Number(count).toLocaleString();
+              localStorage.setItem('riddhik_portfolio_visited', 'true');
+              localStorage.setItem('riddhik_portfolio_count', count);
+            } else {
+              throw new Error('Invalid counter payload');
+            }
+          })
+          .catch(function (err) {
+            console.warn('Counter API error, using fallback:', err);
+            var fallback = cachedCount ? Number(cachedCount) : 1;
+            visitorCountEl.textContent = fallback.toLocaleString();
+          });
+      } else {
+        // Returning visitor -> Display cached count
+        var count = cachedCount ? Number(cachedCount) : 1;
+        visitorCountEl.textContent = count.toLocaleString();
+      }
+    }
+  });
+})();
+
 (function () {
   // Initialize with your Public Key
   emailjs.init("fqG6NfrLG9644WIwd");
@@ -141,7 +215,7 @@ document.getElementById('contact-form').addEventListener('submit', function (eve
       alert('Failed to send email.');
     });
 });
-*/
+
 // Contact Form Handler with EmailJS Delivery to riddhikshrestha@gmail.com
 // (function () {
 //   var EMAILJS_PUBLIC_KEY = 'fqG6NfrLG9644WIwd';
