@@ -278,8 +278,8 @@ main#top {
 }
 
 .profile-avatar {
-  width: 112px;
-  height: 112px;
+  width: 140px;
+  height: 140px;
   aspect-ratio: 1;
   object-fit: cover;
   object-position: center 15%;
@@ -1246,8 +1246,8 @@ textarea.form-control {
   }
 
   .profile-avatar {
-    width: 96px;
-    height: 96px;
+    width: 120px;
+    height: 120px;
   }
 
   .research-meta-grid {
@@ -1261,8 +1261,8 @@ textarea.form-control {
   }
 
   .profile-avatar {
-    width: 88px;
-    height: 88px;
+    width: 110px;
+    height: 110px;
   }
 
   .sidebar-card {
