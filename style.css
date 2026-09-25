@@ -271,12 +271,6 @@ main#top {
 }
 
 /* Profile Avatar */
-.profile-avatar-wrap {
-  position: relative;
-  display: inline-block;
-  margin-bottom: 1.1rem;
-}
-
 .profile-avatar {
   width: 140px;
   height: 140px;
@@ -287,6 +281,16 @@ main#top {
   border: 3px solid var(--bg-white);
   box-shadow: 0 0 0 3px var(--accent-primary), var(--shadow-md);
   transition: transform var(--t-slow), box-shadow var(--t-slow);
+  display: block;
+  max-width: 100%;
+}
+
+.profile-avatar-wrap {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.1rem;
 }
 
 .profile-avatar:hover {
@@ -424,6 +428,8 @@ main#top {
   color: var(--text-secondary);
   text-decoration: none;
   transition: color var(--t-fast);
+  word-break: break-all;
+  overflow-wrap: anywhere;
 }
 
 .sidebar-links a:hover {
@@ -1246,8 +1252,13 @@ textarea.form-control {
   }
 
   .profile-avatar {
-    width: 120px;
-    height: 120px;
+    width: 110px;
+    height: 110px;
+  }
+
+  .profile-avatar-wrap {
+    width: 100%;
+    justify-content: center;
   }
 
   .research-meta-grid {
@@ -1261,8 +1272,13 @@ textarea.form-control {
   }
 
   .profile-avatar {
-    width: 110px;
-    height: 110px;
+    width: 100px;
+    height: 100px;
+  }
+
+  .profile-avatar-wrap {
+    width: 100%;
+    justify-content: center;
   }
 
   .sidebar-card {
