@@ -17,8 +17,7 @@
   --bg-overlay: rgba(255, 255, 255, 0.85);
 
   /* Accent — Deep Indigo */
-   /* --accent-primary: #4f46e5; */
-  --accent-primary: #0f172a;
+  --accent-primary: #4f46e5;
   --accent-hover: #4338ca;
   --accent-soft: rgba(79, 70, 229, 0.08);
   --accent-softer: rgba(79, 70, 229, 0.05);
