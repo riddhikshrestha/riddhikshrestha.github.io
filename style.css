@@ -3,8 +3,40 @@
    Author: Riddi Kumar Shrestha
    ============================================================ */
 
-/* ---------- Google Fonts Import ---------- */
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+/* ---------- Skip Link (Accessibility) ---------- */
+.skip-link {
+  position: absolute;
+  top: -100%;
+  left: 0;
+  z-index: 9999;
+  padding: 10px 18px;
+  background: var(--accent-primary);
+  color: #fff;
+  font-size: 0.875rem;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: 0 0 var(--r-sm) 0;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 0;
+}
+
+/* ---------- Section Subheading ---------- */
+.section-subheading {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--text-primary);
+}
+
+.section-pip--sm {
+  height: 16px;
+}
 
 /* ---------- CSS Custom Properties ---------- */
 :root {
@@ -1129,7 +1161,9 @@ section:nth-child(8) {
   background: var(--bg-white) !important;
   border-color: var(--accent-primary) !important;
   box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1) !important;
-  outline: none;
+  /* outline intentionally kept for keyboard accessibility */
+  outline: 2px solid transparent;
+  outline-offset: 2px;
 }
 
 textarea.form-control {
@@ -1166,14 +1200,26 @@ textarea.form-control {
   transform: translateY(0);
 }
 
+.form-status {
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  border-radius: var(--r-sm);
+  padding: 0;
+  transition: all var(--t-base);
+}
+
 .form-status.success {
   color: #065f46;
   background: rgba(16, 185, 129, 0.08);
   border: 1px solid rgba(16, 185, 129, 0.22);
   padding: 10px 14px;
-  border-radius: var(--r-sm);
-  font-family: var(--font-mono);
-  font-size: 0.78rem;
+}
+
+.form-status.error {
+  color: #7f1d1d;
+  background: rgba(239, 68, 68, 0.07);
+  border: 1px solid rgba(239, 68, 68, 0.22);
+  padding: 10px 14px;
 }
 
 /* Map */
