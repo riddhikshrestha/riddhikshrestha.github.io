@@ -1,16 +1,26 @@
 // Clean HTML5 History API Routing (No visible hash tags) & Smooth Scrolling
 (function () {
-  var navLinksList = document.querySelectorAll('.site-header .nav-link, .sidebar-links a, a[href="about"], a[href="experience"], a[href="research"], a[href="projects"], a[href="teaching"], a[href="skills"], a[href="education"], a[href="contact"]');
+  var navLinksList = document.querySelectorAll(
+    '.site-header .nav-link, .sidebar-links a, a[href="#about"], a[href="#experience"], ' +
+    'a[href="#research"], a[href="#projects"], a[href="#teaching"], a[href="#skills"], ' +
+    'a[href="#education"], a[href="#contact"]'
+  );
   var sections = document.querySelectorAll('main section[id]');
 
   function getSectionIdFromHref(href) {
     if (!href) return null;
-    var clean = href.replace(/^#\/?/, '').replace(/^\//, '');
-    return clean || 'top';
+    // Handle #section-id anchors
+    var hashMatch = href.match(/^#(.+)$/);
+    if (hashMatch) return hashMatch[1];
+    // Handle bare paths (legacy) or root
+    var clean = href.replace(/^\//, '');
+    return clean || 'main-content';
   }
 
   function scrollToSection(sectionId, updateHistory, historyMethod) {
-    var targetEl = sectionId === 'top' ? document.getElementById('top') : document.getElementById(sectionId);
+    var targetEl = (sectionId === 'top' || sectionId === 'main-content')
+      ? document.getElementById('main-content')
+      : document.getElementById(sectionId);
     if (!targetEl) return;
 
     var headerOffset = 75;
@@ -23,7 +33,7 @@
     });
 
     if (updateHistory) {
-      var cleanPath = (sectionId === 'top' || sectionId === '') ? '/' : '/' + sectionId;
+      var cleanPath = (sectionId === 'top' || sectionId === 'main-content' || sectionId === '') ? '/' : '/' + sectionId;
       if (window.location.pathname !== cleanPath && window.location.hash !== '#' + sectionId) {
         if (historyMethod === 'replace') {
           history.replaceState({ section: sectionId }, '', cleanPath);
@@ -45,7 +55,7 @@
     var sectionId = getSectionIdFromHref(href);
     var targetSection = document.getElementById(sectionId);
 
-    if (targetSection || sectionId === 'top' || href === '/') {
+    if (targetSection || sectionId === 'top' || sectionId === 'main-content' || href === '/') {
       e.preventDefault();
 
       // Close mobile navbar collapse if open
@@ -55,14 +65,14 @@
         if (bsCollapse) bsCollapse.hide();
       }
 
-      scrollToSection(sectionId === 'top' ? 'top' : sectionId, true, 'push');
+      scrollToSection(sectionId === 'top' ? 'main-content' : sectionId, true, 'push');
     }
   });
 
   // Handle browser Back & Forward button navigation
   window.addEventListener('popstate', function () {
     var path = window.location.pathname.replace(/^\//, '') || window.location.hash.replace(/^#\/?/, '');
-    var sectionId = path || 'top';
+    var sectionId = path || 'main-content';
     scrollToSection(sectionId, false);
   });
 
@@ -110,7 +120,7 @@
           return;
         }
       } catch (err) {
-        console.error(err);
+        // Silently ignore redirect parse errors
       }
     }
 
@@ -143,7 +153,7 @@
         })
         .then(function (data) {
           var dateStr = (data && data[0] && data[0].commit && data[0].commit.committer && data[0].commit.committer.date) ||
-                         (data && data.commit && data.commit.committer && data.commit.committer.date);
+            (data && data.commit && data.commit.committer && data.commit.committer.date);
           if (dateStr) {
             var commitDate = new Date(dateStr);
             lastUpdatedEl.textContent = formatDDMMYYYY(commitDate);
@@ -151,8 +161,7 @@
             throw new Error('Invalid commit date payload');
           }
         })
-        .catch(function (err) {
-          console.warn('GitHub API fetch failed, using document.lastModified:', err);
+        .catch(function () {
           var fallbackDate = new Date(document.lastModified);
           if (!isNaN(fallbackDate.getTime())) {
             lastUpdatedEl.textContent = formatDDMMYYYY(fallbackDate);
@@ -180,8 +189,7 @@
               localStorage.setItem('riddhik_portfolio_count', count);
             }
           })
-          .catch(function (err) {
-            console.warn('Counter API error:', err);
+          .catch(function () {
             if (cachedCount) visitorCountEl.textContent = Number(cachedCount).toLocaleString();
           });
       } else if (cachedCount) {
@@ -198,23 +206,47 @@
 })();
 
 
-
+// EmailJS Initialization
 (function () {
-  // Initialize with your Public Key
-  emailjs.init("fqG6NfrLG9644WIwd");
+  emailjs.init('fqG6NfrLG9644WIwd');
 })();
 
-document.getElementById('contact-form').addEventListener('submit', function (event) {
-  event.preventDefault(); // Prevent page reload
+// Contact Form — EmailJS submission with in-page status feedback
+document.addEventListener('DOMContentLoaded', function () {
+  var form = document.getElementById('contact-form');
+  var statusEl = document.getElementById('form-status');
+  var submitBtn = document.getElementById('contact-submit-btn');
 
-  // Send form data directly
-  emailjs.sendForm('service_cpai3x4', 'template_b5miq05', this)
-    .then(function () {
-      console.log('SUCCESS!');
-      alert('Email sent successfully!');
-    }, function (error) {
-      console.log('FAILED...', error);
-      alert('Failed to send email.');
-    });
+  if (!form) return;
+
+  form.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    // Basic client-side validation
+    if (!form.checkValidity()) {
+      form.reportValidity();
+      return;
+    }
+
+    // Disable button while sending
+    submitBtn.disabled = true;
+    submitBtn.querySelector('span').textContent = 'Sending…';
+    statusEl.textContent = '';
+    statusEl.className = 'form-status mt-3';
+
+    emailjs.sendForm('service_cpai3x4', 'template_b5miq05', form)
+      .then(function () {
+        statusEl.textContent = '✓ Message sent successfully! I\'ll get back to you shortly.';
+        statusEl.className = 'form-status mt-3 success';
+        form.reset();
+      })
+      .catch(function () {
+        statusEl.textContent = '✗ Failed to send message. Please email me directly at contact@riddikshrestha.com.np';
+        statusEl.className = 'form-status mt-3 error';
+      })
+      .finally(function () {
+        submitBtn.disabled = false;
+        submitBtn.querySelector('span').textContent = 'Send Message';
+      });
+  });
 });
-
