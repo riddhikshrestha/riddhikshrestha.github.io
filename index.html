@@ -8,7 +8,6 @@
 
   <!-- Favicon using Profile.jpg -->
   <link rel="icon" type="image/jpeg" href="Profile.jpg">
-  <link rel="shortcut icon" type="image/jpeg" href="Profile.jpg">
   <link rel="apple-touch-icon" href="Profile.jpg">
 
   <!-- SEO Meta Tags & Google Searchable Keywords -->
@@ -27,7 +26,7 @@
   <meta property="og:title" content="Riddi Kumar Shrestha — Software Engineer &amp; ML Researcher">
   <meta property="og:description"
     content="Portfolio of Riddi Kumar Shrestha, Software Engineer &amp; ML Researcher based in Kathmandu, Nepal.">
-  <meta property="og:image" content="Profile.jpg">
+  <meta property="og:image" content="https://riddhikshrestha.github.io/Profile.jpg">
 
   <!-- Twitter Card -->
   <meta property="twitter:card" content="summary_large_image">
@@ -35,7 +34,7 @@
   <meta property="twitter:title" content="Riddi Kumar Shrestha — Software Engineer &amp; ML Researcher">
   <meta property="twitter:description"
     content="Portfolio of Riddi Kumar Shrestha, Software Engineer &amp; ML Researcher based in Kathmandu, Nepal.">
-  <meta property="twitter:image" content="Profile.jpg">
+  <meta property="twitter:image" content="https://riddhikshrestha.github.io/Profile.jpg">
 
   <!-- Schema.org JSON-LD Structured Data for Google Search -->
   <script type="application/ld+json">
@@ -113,10 +112,13 @@
 
 <body data-bs-spy="scroll" data-bs-target="#portfolioNav" data-bs-offset="100">
 
+  <!-- Skip to main content (keyboard / screen-reader navigation) -->
+  <a class="skip-link" href="#main-content">Skip to main content</a>
+
   <!-- ═══════════════════════════════════════════════════════
        NAVBAR
   ═══════════════════════════════════════════════════════ -->
-  <header class="navbar navbar-expand-md sticky-top site-header">
+  <header class="navbar navbar-expand-md sticky-top site-header" role="banner">
     <div class="container">
       <a class="navbar-brand" href="/" id="nav-brand">
         riddikshrestha.com.np
@@ -126,16 +128,18 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse justify-content-end" id="portfolioNav">
-        <ul class="navbar-nav mb-2 mb-md-0 gap-md-1">
-          <li class="nav-item"><a class="nav-link" href="about">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="experience">Experience</a></li>
-          <li class="nav-item"><a class="nav-link" href="research">Research</a></li>
-          <li class="nav-item"><a class="nav-link" href="projects">Projects</a></li>
-          <li class="nav-item"><a class="nav-link" href="teaching">Teaching</a></li>
-          <li class="nav-item"><a class="nav-link" href="skills">Stack</a></li>
-          <li class="nav-item"><a class="nav-link" href="education">Education</a></li>
-          <li class="nav-item"><a class="nav-link" href="contact">Contact</a></li>
-        </ul>
+        <nav aria-label="Primary navigation">
+          <ul class="navbar-nav mb-2 mb-md-0 gap-md-1">
+            <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+            <li class="nav-item"><a class="nav-link" href="#experience">Experience</a></li>
+            <li class="nav-item"><a class="nav-link" href="#research">Research</a></li>
+            <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+            <li class="nav-item"><a class="nav-link" href="#teaching">Teaching</a></li>
+            <li class="nav-item"><a class="nav-link" href="#skills">Stack</a></li>
+            <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
+            <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+          </ul>
+        </nav>
       </div>
     </div>
   </header>
@@ -143,20 +147,25 @@
   <!-- ═══════════════════════════════════════════════════════
        MAIN 2-COLUMN LAYOUT
   ═══════════════════════════════════════════════════════ -->
-  <main id="top" class="py-4 py-md-5">
+  <main id="main-content" class="py-4 py-md-5">
     <div class="container">
       <div class="row g-4 g-lg-5">
 
         <!-- ─── LEFT SIDEBAR ──────────────────────────────── -->
-        <aside class="col-lg-3 col-md-4">
+        <aside class="col-lg-3 col-md-4" aria-label="Profile sidebar">
           <div class="sticky-top-sidebar">
             <div class="sidebar-card text-center text-md-start">
 
               <!-- Profile Photo -->
               <div class="text-center mb-3">
                 <div class="profile-avatar-wrap">
-                  <img src="Profile.jpg" alt="Riddi Kumar Shrestha — Software Engineer &amp; ML Researcher"
-                    class="profile-avatar">
+                  <img src="Profile.jpg"
+                    alt="Riddi Kumar Shrestha — Software Engineer and ML Researcher"
+                    class="profile-avatar"
+                    width="140"
+                    height="140"
+                    loading="eager"
+                    decoding="async">
                 </div>
               </div>
 
@@ -174,55 +183,55 @@
                 Software Engineer — Machine Learning &amp; Full-Stack Development
               </p>
 
-              <hr class="sidebar-divider">
+              <hr class="sidebar-divider" aria-hidden="true">
 
               <!-- Info Links -->
               <ul class="sidebar-links mb-3">
                 <li>
-                  <span class="si-icon geo"><i class="bi bi-geo-alt-fill"></i></span>
+                  <span class="si-icon geo" aria-hidden="true"><i class="bi bi-geo-alt-fill"></i></span>
                   <span>Kathmandu, Nepal</span>
                 </li>
                 <li>
-                  <span class="si-icon work"><i class="bi bi-building"></i></span>
+                  <span class="si-icon work" aria-hidden="true"><i class="bi bi-building"></i></span>
                   <span>Nepit Solutions Pvt. Ltd.</span>
                 </li>
                 <li>
-                  <span class="si-icon cv"><i class="bi bi-file-earmark-pdf-fill"></i></span>
+                  <span class="si-icon cv" aria-hidden="true"><i class="bi bi-file-earmark-pdf-fill"></i></span>
                   <a href="Riddi_Kumar_Shrestha_Resume.pdf" download>Resume (PDF)</a>
                 </li>
                 <li>
-                  <span class="si-icon mail"><i class="bi bi-envelope-fill"></i></span>
+                  <span class="si-icon mail" aria-hidden="true"><i class="bi bi-envelope-fill"></i></span>
                   <a href="mailto:contact@riddikshrestha.com.np">contact@riddikshrestha.com.np</a>
                 </li>
                 <li>
-                  <span class="si-icon echo"><i class="bi bi-journal-medical"></i></span>
-                  <a href="research">EchoNet Research</a>
+                  <span class="si-icon echo" aria-hidden="true"><i class="bi bi-journal-medical"></i></span>
+                  <a href="#research">EchoNet Research</a>
                 </li>
               </ul>
 
-              <hr class="sidebar-divider">
+              <hr class="sidebar-divider" aria-hidden="true">
 
               <!-- Social Icon Buttons -->
               <div class="social-icon-row justify-content-center justify-content-md-start">
-                <a href="https://github.com/riddhikshrestha" target="_blank" rel="noopener" class="social-icon-btn"
-                  title="GitHub" aria-label="GitHub">
-                  <i class="bi bi-github"></i>
+                <a href="https://github.com/riddhikshrestha" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                  title="GitHub" aria-label="GitHub profile">
+                  <i class="bi bi-github" aria-hidden="true"></i>
                 </a>
-                <a href="https://linkedin.com/in/riddhikshrestha" target="_blank" rel="noopener" class="social-icon-btn"
-                  title="LinkedIn" aria-label="LinkedIn">
-                  <i class="bi bi-linkedin"></i>
+                <a href="https://linkedin.com/in/riddhikshrestha" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                  title="LinkedIn" aria-label="LinkedIn profile">
+                  <i class="bi bi-linkedin" aria-hidden="true"></i>
                 </a>
-                <a href="https://youtube.com/@riddhikshrestha" target="_blank" rel="noopener" class="social-icon-btn"
-                  title="YouTube" aria-label="YouTube">
-                  <i class="bi bi-youtube"></i>
+                <a href="https://youtube.com/@riddhikshrestha" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                  title="YouTube" aria-label="YouTube channel">
+                  <i class="bi bi-youtube" aria-hidden="true"></i>
                 </a>
-                <a href="https://facebook.com/riddhikshrestha" target="_blank" rel="noopener" class="social-icon-btn"
-                  title="Facebook" aria-label="Facebook">
-                  <i class="bi bi-facebook"></i>
+                <a href="https://facebook.com/riddhikshrestha" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                  title="Facebook" aria-label="Facebook profile">
+                  <i class="bi bi-facebook" aria-hidden="true"></i>
                 </a>
-                <a href="https://medium.com/@riddhikshrestha" target="_blank" rel="noopener" class="social-icon-btn"
-                  title="Medium" aria-label="Medium">
-                  <i class="bi bi-medium"></i>
+                <a href="https://medium.com/@riddhikshrestha" target="_blank" rel="noopener noreferrer" class="social-icon-btn"
+                  title="Medium" aria-label="Medium blog">
+                  <i class="bi bi-medium" aria-hidden="true"></i>
                 </a>
               </div>
 
@@ -234,10 +243,10 @@
         <div class="col-lg-9 col-md-8">
 
           <!-- ══════ ABOUT ══════════════════════════════════ -->
-          <section id="about">
+          <section id="about" aria-labelledby="about-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>About</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="about-heading">About</h2>
             </div>
 
             <p class="about-lead">
@@ -247,9 +256,9 @@
               engineering, paired with part-time university computer science lecturing.
             </p>
 
-            <h3 class="section-heading" style="margin-bottom:1rem;">
-              <span class="section-pip" style="height:16px;"></span>
-              <span style="font-size:0.95rem;font-weight:700;color:var(--text-primary);">Core Areas of Work</span>
+            <h3 class="section-subheading">
+              <span class="section-pip section-pip--sm" aria-hidden="true"></span>
+              <span>Core Areas of Work</span>
             </h3>
 
             <div class="focus-area-grid">
@@ -278,10 +287,10 @@
           </section>
 
           <!-- ══════ EXPERIENCE ══════════════════════════════ -->
-          <section id="experience">
+          <section id="experience" aria-labelledby="experience-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>Select Professional Activities</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="experience-heading">Select Professional Activities</h2>
             </div>
 
             <div class="timeline">
@@ -345,15 +354,15 @@
           </section>
 
           <!-- ══════ RESEARCH ════════════════════════════════ -->
-          <section id="research">
+          <section id="research" aria-labelledby="research-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>Independent Research</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="research-heading">Independent Research</h2>
             </div>
 
             <div class="research-card">
               <span class="research-badge">
-                <i class="bi bi-hourglass-split"></i>
+                <i class="bi bi-hourglass-split" aria-hidden="true"></i>
                 In Progress — Preparing Journal Submission
               </span>
               <h3>Estimating ejection fraction directly from echocardiography video</h3>
@@ -382,10 +391,10 @@
           </section>
 
           <!-- ══════ PROJECTS ════════════════════════════════ -->
-          <section id="projects">
+          <section id="projects" aria-labelledby="projects-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>Selected Projects</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="projects-heading">Selected Projects</h2>
             </div>
 
             <div class="project-item">
@@ -394,7 +403,7 @@
               <p>Configured and customised high-scale booking flows and payment gateways for European and UK
                 clients in leisure, entertainment, and hospitality.</p>
               <p class="project-clients">
-                <i class="bi bi-buildings me-1 opacity-50"></i>
+                <i class="bi bi-buildings me-1 opacity-50" aria-hidden="true"></i>
                 Lane7 · The Brunch Club · Rollacity · Spinner · Dereham Strike Bowl · Ludlow Racecourse · PitchGolf
                 Manchester
               </p>
@@ -430,10 +439,10 @@
           </section>
 
           <!-- ══════ TEACHING ════════════════════════════════ -->
-          <section id="teaching">
+          <section id="teaching" aria-labelledby="teaching-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>Teaching</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="teaching-heading">Teaching</h2>
             </div>
 
             <ul class="teaching-list">
@@ -459,10 +468,10 @@
           </section>
 
           <!-- ══════ TECH STACK ══════════════════════════════ -->
-          <section id="skills">
+          <section id="skills" aria-labelledby="skills-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>Tech Stack &amp; Skills</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="skills-heading">Tech Stack &amp; Skills</h2>
             </div>
 
             <div class="row g-3">
@@ -523,14 +532,13 @@
           </section>
 
           <!-- ══════ EDUCATION ═══════════════════════════════ -->
-          <section id="education">
+          <section id="education" aria-labelledby="education-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>Education &amp; Certificates</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="education-heading">Education &amp; Certificates</h2>
             </div>
 
             <div class="edu-item">
-              <!-- <div class="edu-icon"><i class="bi bi-mortarboard-fill"></i></div> -->
               <div class="edu-body">
                 <h3>Master of Information System Engineering</h3>
                 <span>Gandaki College of Engineering and Science, Pokhara — 2024</span>
@@ -538,7 +546,6 @@
             </div>
 
             <div class="edu-item">
-              <!-- <div class="edu-icon"><i class="bi bi-cpu"></i></div> -->
               <div class="edu-body">
                 <h3>Bachelor of Computer Engineering</h3>
                 <span>Kathford Int'l College of Engineering and Management, Kathmandu — 2015</span>
@@ -549,39 +556,39 @@
 
             <ul class="cert-list">
               <li>
-                <a href="https://coursera.org/share/984277cf610e78d4589ceb8808079af5" target="_blank" rel="noopener">
+                <a href="https://coursera.org/share/984277cf610e78d4589ceb8808079af5" target="_blank" rel="noopener noreferrer">
                   Programming for Everybody (Getting Started with Python)
                 </a>
                 <span class="cert-issuer">University of Michigan</span>
               </li>
               <li>
-                <a href="https://coursera.org/share/97b3f31d801f4fbe51eb7a5f4d8b6094" target="_blank" rel="noopener">
+                <a href="https://coursera.org/share/97b3f31d801f4fbe51eb7a5f4d8b6094" target="_blank" rel="noopener noreferrer">
                   Python Data Structures
                 </a>
                 <span class="cert-issuer">University of Michigan</span>
               </li>
               <li>
-                <a href="https://coursera.org/share/b2470313d3c2de864e54874f6c7e21a3" target="_blank" rel="noopener">
+                <a href="https://coursera.org/share/b2470313d3c2de864e54874f6c7e21a3" target="_blank" rel="noopener noreferrer">
                   Using Python to Access Web Data
                 </a>
                 <span class="cert-issuer">University of Michigan</span>
               </li>
               <li>
                 <a href="https://www.coursera.org/account/accomplishments/verify/EUN2SKZFGP8H" target="_blank"
-                  rel="noopener">
+                  rel="noopener noreferrer">
                   Supervised Machine Learning: Regression &amp; Classification
                 </a>
                 <span class="cert-issuer">DeepLearning.AI</span>
               </li>
               <li>
-                <a href="https://coursera.org/share/854c5424a2b2562f42279df769a95a1a" target="_blank" rel="noopener">
+                <a href="https://coursera.org/share/854c5424a2b2562f42279df769a95a1a" target="_blank" rel="noopener noreferrer">
                   Neural Networks and Deep Learning
                 </a>
                 <span class="cert-issuer">DeepLearning.AI</span>
               </li>
               <li>
                 <a href="https://www.coursera.org/account/accomplishments/certificate/DBKYHHRF833J" target="_blank"
-                  rel="noopener">
+                  rel="noopener noreferrer">
                   Introduction to TensorFlow for AI, ML, and Deep Learning
                 </a>
                 <span class="cert-issuer">DeepLearning.AI</span>
@@ -590,10 +597,10 @@
           </section>
 
           <!-- ══════ CONTACT ═════════════════════════════════ -->
-          <section id="contact">
+          <section id="contact" aria-labelledby="contact-heading">
             <div class="section-heading">
-              <span class="section-pip"></span>
-              <h2>Contact</h2>
+              <span class="section-pip" aria-hidden="true"></span>
+              <h2 id="contact-heading">Contact</h2>
             </div>
 
             <p style="font-size:.875rem;color:var(--text-secondary);margin-bottom:1.5rem;">
@@ -603,20 +610,17 @@
             <div class="row g-4">
               <div class="col-lg-7">
                 <div class="contact-form-wrap">
-                  <form id="contact-form" method="POST">
-                    <input type="hidden" name="_subject" value="Portfolio Contact Inquiry - riddikshrestha.com.np">
-                    <input type="hidden" name="_template" value="table">
-                    <input type="hidden" name="_captcha" value="false">
+                  <form id="contact-form" novalidate>
 
                     <div class="mb-3">
                       <label for="contact-name" class="form-label">Name</label>
                       <input type="text" class="form-control" id="contact-name" name="name" placeholder="Your name"
-                        required>
+                        required autocomplete="name">
                     </div>
                     <div class="mb-3">
                       <label for="contact-email" class="form-label">Email</label>
                       <input type="email" class="form-control" id="contact-email" name="email"
-                        placeholder="name@example.com" required>
+                        placeholder="name@example.com" required autocomplete="email">
                     </div>
                     <div class="mb-3">
                       <label for="contact-subject" class="form-label">Subject</label>
@@ -629,10 +633,10 @@
                         placeholder="Write your message here..." required></textarea>
                     </div>
                     <button type="submit" id="contact-submit-btn" class="btn-send">
-                      <i class="bi bi-send-fill"></i>
+                      <i class="bi bi-send-fill" aria-hidden="true"></i>
                       <span>Send Message</span>
                     </button>
-                    <div id="form-status" class="form-status mt-3"></div>
+                    <div id="form-status" class="form-status mt-3" role="alert" aria-live="polite"></div>
                   </form>
                 </div>
               </div>
@@ -641,7 +645,12 @@
                 <div class="map-wrap">
                   <iframe title="Google Map showing Kathmandu, Nepal"
                     src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d56516.31625952077!2d85.2911132!3d27.7089603!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x39eb198a307baabf%3A0xb5137c15651680d6!2sKathmandu%2044600%2C%20Nepal!5e0!3m2!1sen!2snp!4v1710000000000!5m2!1sen!2snp"
-                    width="100%" height="100%" style="border:0;min-height:240px;" allowfullscreen="" loading="lazy">
+                    width="100%" height="100%"
+                    style="border:0;min-height:240px;"
+                    allowfullscreen
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    sandbox="allow-scripts allow-same-origin">
                   </iframe>
                 </div>
               </div>
@@ -660,16 +669,16 @@
     <div class="container">
       <div class="d-flex flex-column flex-sm-row justify-content-center align-items-center gap-1 gap-sm-3">
         <span>© Riddi Kumar Shrestha</span>
-        <span class="d-none d-sm-inline" style="color:var(--text-muted);">·</span>
+        <span class="d-none d-sm-inline" style="color:var(--text-muted);" aria-hidden="true">·</span>
         <span>Last Updated: <span id="last-updated-date">--</span></span>
       </div>
     </div>
   </footer>
 
   <!-- Bootstrap 5.3.3 JS Bundle & EmailJS SDK -->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
-  <script src="script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" defer></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js" defer></script>
+  <script src="script.js" defer></script>
 </body>
 
 </html>
